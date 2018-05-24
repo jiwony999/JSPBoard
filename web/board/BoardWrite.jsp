@@ -14,8 +14,8 @@
                 form.name.focus();
                 return true;
             }
-            /*
-           if (!form.mail.value) {
+
+           if (form.mail.value) {
                 if (!isCorrectEmail('BoardWrite', 'mail')) {
                     alert("이메일 형식이 올바르지 않습니다.");
                     form.mail.focus();
@@ -23,7 +23,7 @@
                     return true;
                 }
             }
-            */
+
             if (!form.subject.value) {
                 alert("게시판의 제목을 입력하세요");
                 form.subject.focus();
@@ -72,7 +72,7 @@
         <TR>
             <TD WIDTH=120 ALIGN=CENTER><B>이름</B></TD>
             <TD WIDTH=500>
-                <INPUT TYPE=TEXT NAME="name" SIZE=20 style="ime-mode:active">
+                <INPUT TYPE=TEXT NAME="name" SIZE=20 style="ime-mode:active" onkeydown="Korean()">
             </TD>
         </TR>
 
