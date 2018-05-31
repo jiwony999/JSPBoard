@@ -19,6 +19,17 @@
         String jdbcPw = "jsppass";
         conn = DriverManager.getConnection(jdbcUrl, jdbcId, jdbcPw);
 
+        String column = request.getParameter("column");
+        if (column == null)
+            column = "";
+
+        String key = request.getParameter("key");
+        if (key != null) {
+            encoded_key = URLEncoder.encode(key,"utf-8");
+        } else {
+            key ="";
+        }
+
         String Query1 = "update board set UsrRefer=UsrRefer+1 where RcdNo=?";
         pstmt = conn.prepareStatement(Query1);
 
@@ -105,14 +116,14 @@
 
     <TR ALIGN=CENTER>
         <TD WIDTH="310" ALIGN=LEFT>
-            <IMG SRC="../images/btn_list.gif" STYLE=CURSOR:HAND onClick="javascript:location.replace('BoardList.jsp')">
+            <IMG SRC="../images/btn_list.gif" STYLE=CURSOR:HAND onClick="javascript:location.replace('BoardList.jsp?column=<%=column%>&key=<%=encoded_key%>')">
         </TD>
         <TD WIDTH="310" ALIGN=RIGHT>
             <IMG SRC="../images/btn_reply.gif" STYLE=CURSOR:HAND
-                 onClick="javascript:location.replace('BoardReply.jsp')">&nbsp;&nbsp;
+                 onClick="javascript:location.replace('BoardReply.jsp?column=<%=column%>&key=<%=encoded_key%>')">&nbsp;&nbsp;
             <IMG SRC="../images/btn_mdfy.gif" STYLE=CURSOR:HAND
-                 onClick="javascript:location.replace('BoardModify.jsp')">&nbsp;&nbsp;
-            <IMG SRC="../images/btn_del.gif" STYLE=CURSOR:HAND onClick="javascript:location.replace('BoardDelete.jsp')">
+                 onClick="javascript:location.replace('BoardModify.jsp?column=<%=column%>&key=<%=encoded_key%>')">&nbsp;&nbsp;
+            <IMG SRC="../images/btn_del.gif" STYLE=CURSOR:HAND onClick="javascript:location.replace('BoardDelete.jsp?column=<%=column%>&key=<%=encoded_key%>')">
         </TD>
     </TR>
 

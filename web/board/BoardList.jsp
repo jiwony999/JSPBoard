@@ -111,7 +111,7 @@
     %>
     <TR>
         <TD WIDTH=45 ALIGN=CENTER><%=totalRecords%></TD>
-        <TD WIDTH=395 ALIGN=LEFT><A HREF="BoardContent.jsp?rno=<%=rno%>"><%=subject%></A></TD>
+        <TD WIDTH=395 ALIGN=LEFT><A HREF="BoardContent.jsp?rno=<%=rno%>&column=<%=column%>&key=<%=encoded_key%>"><%=subject%></A></TD>
         <TD WIDTH=65 ALIGN=CENTER><%=name%></TD>
         <TD ALIGN=CENTER><%=today%></TD>
         <TD ALIGN=CENTER><%=refer%></TD>
@@ -128,7 +128,7 @@
 
         <TR>
             <TD ALIGN=LEFT WIDTH=100>
-                <IMG SRC="../images/btn_new.gif" onClick="javascript:location.replace('BoardWrite.jsp')"; STYLE=CURSOR:HAND>
+                <IMG SRC="../images/btn_new.gif" onClick="javascript:location.replace('BoardWrite.jsp?column=<%=column%>&key=<%=encoded_key%>')"; STYLE=CURSOR:HAND>
             </TD>
             <TD WIDTH=320 ALIGN=CENTER>
                 <IMG SRC="../images/btn_bf_block.gif">&nbsp;
