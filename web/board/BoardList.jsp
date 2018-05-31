@@ -1,83 +1,166 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="java.net.URLEncoder" %>
+
+<% request.setCharacterEncoding("utf-8"); %>
+
+<%
+    Connection conn = null;
+    PreparedStatement pstmt = null;
+    ResultSet rs1 = null;
+    ResultSet rs2 = null;
+
+    int totalRecords = 0;
+
+    try {
+
+        Class.forName("com.mysql.jdbc.Driver");
+        String jdbcUrl = "jdbc:mysql://localhost:3306/jspdb";
+        String jdbcId = "jspuser";
+        String jdbcPw = "jsppass";
+        conn = DriverManager.getConnection(jdbcUrl, jdbcId, jdbcPw);
+
+        String Query1 = "";
+        String Query2 = "";
+        String encoded_key = "";
+
+        String column = request.getParameter("column");
+        if (column == null)
+            column = "";
+
+        String key = request.getParameter("key");
+        if (key != null) {
+            encoded_key = URLEncoder.encode(key,"utf-8");
+        } else {
+            key ="";
+        }
+
+        if (column.equals("") || key.equals("")) {
+            Query1 = "select count(RcdNo) from board";
+            Query2 = "Select RcdNo, UsrSubject, UsrName, UsrDate, UsrRefer from board order by RcdNo desc";
+        } else {
+            Query1 = "select count(RcdNo) from board where  "+ column + " like '%" + key + "%'";
+            Query2 = "Select RcdNo, UsrSubject, UsrName, UsrDate, UsrRefer from board where "+column+ " like '%" + key + "%'order by RcdNo desc";
+        }
+
+        pstmt = conn.prepareStatement(Query1);
+        rs1 = pstmt.executeQuery();
+
+        pstmt = conn.prepareStatement(Query2);
+        rs2 = pstmt.executeQuery();
+
+        rs1.next();
+        totalRecords = rs1.getInt(1);
+
+
+%>
 
 <HTML>
 <HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="TEXT/HTML; CHARSET=euc-kr"/>
-	<LINK REL="stylesheet" type="text/css" href="../include/style.css"/>	
-	<TITLE>°Ô½Ã±Û ¸®½ºÆ®</TITLE>
+    <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="TEXT/HTML; CHARSET=euc-kr"/>
+    <LINK REL="stylesheet" type="text/css" href="../include/style.css"/>
+    <TITLE>ê²Œì‹œê¸€ ë¦¬ìŠ¤íŠ¸</TITLE>
 </HEAD>
 
 <BODY>
 
 <TABLE WIDTH=620 HEIGHT=40 BORDER=0 CELLSPACING=1 CELLPADDING=1 ALIGN=CENTER>
-	<TR BGCOLOR=#A0A0A0>
-		<TD ALIGN=CENTER><FONT SIZE=4><B>°Ô½ÃÆÇ ( ¸®½ºÆ® )</B></FONT></TD>
-	</TR>
+    <TR BGCOLOR=#A0A0A0>
+        <TD ALIGN=CENTER><FONT SIZE=4><B>ê²Œì‹œíŒ ( ë¦¬ìŠ¤íŠ¸ )</B></FONT></TD>
+    </TR>
 </TABLE>
 
 <%
-//------------------------------- JSP CODE START ( ¼¼¼Ç º¯¼ö¿¡ µû¸¥ ¹®¼­ ¼±ÅÃ )
-	String member_id = (String)session.getAttribute("member_id");
-	if(member_id == null) {
+    //------------------------------- JSP CODE START ( ì„¸ì…˜ ë³€ìˆ˜ì— ë”°ë¥¸ ë¬¸ì„œ ì„ íƒ )
+    String member_id = (String)session.getAttribute("member_id");
+    if(member_id == null) {
 %>
-		<jsp:include page="../member/LoginForm.jsp"/>
-<% 
-	} else { 
-%>		
-		<jsp:include page="../member/LoginState.jsp"/>	
-<% 
-	}
-//------------------------------- JSP CODE END 	
+<jsp:include page="../member/LoginForm.jsp"/>
+<%
+} else {
 %>
- 
+<jsp:include page="../member/LoginState.jsp"/>
+<%
+    }
+//------------------------------- JSP CODE END
+%>
+
 <TABLE WIDTH=620 BORDER=1 CELLSPACING=0 CELLPADDING=1 ALIGN=CENTER>
 
-	<TR ALIGN=CENTER>
-		<TD WIDTH=45><B>¹øÈ£</B></TD>
-		<TD WIDTH=395><B>Á¦¸ñ</B></TD>
-		<TD WIDTH=65><B>ÀÛ¼ºÀÚ</B></TD>
-		<TD WIDTH=70><B>ÀÛ¼ºÀÏ</B></TD>
-		<TD WIDTH=45><B>ÂüÁ¶</B></TD>
-	</TR>
-	
-	<TR>
-		<TD WIDTH=45 ALIGN=CENTER>1</TD>
-		<TD WIDTH=395 ALIGN=LEFT><A HREF="BoardContent.jsp">È«±æµ¿ÀÔ´Ï´Ù.</A></TD>
-		<TD WIDTH=65 ALIGN=CENTER>È«±æµ¿</TD>
-		<TD ALIGN=CENTER>2013-10-10</TD>
-		<TD ALIGN=CENTER>1</TD>
-	</TR>
+    <TR ALIGN=CENTER>
+        <TD WIDTH=45><B>ë²ˆí˜¸</B></TD>
+        <TD WIDTH=395><B>ì œëª©</B></TD>
+        <TD WIDTH=65><B>ì‘ì„±ì</B></TD>
+        <TD WIDTH=70><B>ì‘ì„±ì¼</B></TD>
+        <TD WIDTH=45><B>ì°¸ì¡°</B></TD>
+    </TR>
+    <%
+        while (rs2.next()){
+            int rno = rs2.getInt("RcdNo");
+            String subject = rs2.getString("UsrSubject");
+            String name = rs2.getString("UsrName");
+
+            long date = rs2.getLong("UsrDate");
+            SimpleDateFormat Current = new SimpleDateFormat("yyyy/MM/dd");
+
+            String today = Current.format(date);
+
+            int refer = rs2.getInt("UsrRefer");
+
+    %>
+    <TR>
+        <TD WIDTH=45 ALIGN=CENTER><%=totalRecords%></TD>
+        <TD WIDTH=395 ALIGN=LEFT><A HREF="BoardContent.jsp?rno=<%=rno%>"><%=subject%></A></TD>
+        <TD WIDTH=65 ALIGN=CENTER><%=name%></TD>
+        <TD ALIGN=CENTER><%=today%></TD>
+        <TD ALIGN=CENTER><%=refer%></TD>
+    </TR>
+    <%
+            totalRecords--;
+        }
+    %>
 </TABLE>
 
 <FORM NAME="BoardSearch" METHOD=POST action="BoardList.jsp">
 
-<TABLE WIDTH=620 HEIGHT=50 BORDER=0 CELLSPACING=1 CELLPADDING=1 ALIGN=CENTER>
+    <TABLE WIDTH=620 HEIGHT=50 BORDER=0 CELLSPACING=1 CELLPADDING=1 ALIGN=CENTER>
 
-	<TR>
-		<TD ALIGN=LEFT WIDTH=100>
-			<IMG SRC="../images/btn_new.gif" onClick="javascript:location.replace('BoardWrite.jsp')"; STYLE=CURSOR:HAND>
-		</TD>
-		<TD WIDTH=320 ALIGN=CENTER>
-			<IMG SRC="../images/btn_bf_block.gif">&nbsp;
-			<IMG SRC="../images/btn_bf_page.gif">&nbsp;    	
-			1&nbsp;&nbsp;2&nbsp;&nbsp;3&nbsp;&nbsp;4&nbsp;&nbsp;5&nbsp;&nbsp;6&nbsp;&nbsp;7&nbsp;&nbsp;8&nbsp;&nbsp;9&nbsp;&nbsp;10&nbsp;
-			<IMG SRC="../images/btn_nxt_page.gif">&nbsp; 
-			<IMG SRC="../images/btn_nxt_block.gif">    	    		     
-		</TD>
-		<TD WIDTH=200 ALIGN=RIGHT>
-			<SELECT NAME="column" SIZE=1>
-				<OPTION VALUE="" SELECTED>¼±ÅÃ</OPTION>
-				<OPTION VALUE="UsrSubject">Á¦¸ñ</OPTION>
-				<OPTION VALUE="UsrContent">³»¿ë</OPTION>
-			</SELECT> 
-			<INPUT TYPE=TEXT NAME="key" SIZE=10 MAXLENGTH=20> 
-			<IMG SRC="../images/btn_search.gif" ALIGN=absmiddle STYLE=CURSOR:HAND>
-		</TD>    
-	</TR>
-	
-</TABLE>
+        <TR>
+            <TD ALIGN=LEFT WIDTH=100>
+                <IMG SRC="../images/btn_new.gif" onClick="javascript:location.replace('BoardWrite.jsp')"; STYLE=CURSOR:HAND>
+            </TD>
+            <TD WIDTH=320 ALIGN=CENTER>
+                <IMG SRC="../images/btn_bf_block.gif">&nbsp;
+                <IMG SRC="../images/btn_bf_page.gif">&nbsp;
+                1&nbsp;&nbsp;2&nbsp;&nbsp;3&nbsp;&nbsp;4&nbsp;&nbsp;5&nbsp;&nbsp;6&nbsp;&nbsp;7&nbsp;&nbsp;8&nbsp;&nbsp;9&nbsp;&nbsp;10&nbsp;
+                <IMG SRC="../images/btn_nxt_page.gif">&nbsp;
+                <IMG SRC="../images/btn_nxt_block.gif">
+            </TD>
+            <TD WIDTH=200 ALIGN=RIGHT>
+                <SELECT NAME="column" SIZE=1>
+                    <OPTION VALUE="" SELECTED>ì„ íƒ</OPTION>
+                    <OPTION VALUE="UsrSubject">ì œëª©</OPTION>
+                    <OPTION VALUE="UsrContent">ë‚´ìš©</OPTION>
+                </SELECT>
+                <INPUT TYPE=TEXT NAME="key" SIZE=10 MAXLENGTH=20>
+                <IMG SRC="../images/btn_search.gif" ALIGN=absmiddle STYLE=CURSOR:HAND onclick="javascript:submit()">
+            </TD>
+        </TR>
+
+    </TABLE>
 
 </FORM>
+<%
+    }catch(SQLException e){
+        e.printStackTrace();
+    }finally {
+        rs1.close();
+        rs2.close();
+        pstmt.close();
+        conn.close();
+    }
+%>
 
 </BODY>
 </HTML>
