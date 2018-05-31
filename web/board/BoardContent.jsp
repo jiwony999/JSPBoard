@@ -2,6 +2,43 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="java.net.URLEncoder" %>
 
+<%
+    int rno = Integer.parseInt(request.getParameter("rno"));
+
+    Connection conn = null;
+    PreparedStatement pstmt = null;
+    ResultSet rs1 = null;
+
+    String encoded_key="";
+
+    try {
+
+        Class.forName("com.mysql.jdbc.Driver");
+        String jdbcUrl = "jdbc:mysql://localhost:3306/jspdb";
+        String jdbcId = "jspuser";
+        String jdbcPw = "jsppass";
+        conn = DriverManager.getConnection(jdbcUrl, jdbcId, jdbcPw);
+
+        String Query1 = "update board set UsrRefer=UsrRefer+1 where RcdNo=?";
+        pstmt = conn.prepareStatement(Query1);
+
+        pstmt.setInt(1, rno);
+        pstmt.executeUpdate();
+
+        String Query2 = "select UsrName, UsrMail, UsrSubject, UsrContent from board where RcdNo=?";
+        pstmt = conn.prepareStatement(Query2);
+        pstmt.setInt(1, rno);
+        rs1 = pstmt.executeQuery();
+        rs1.next();
+
+        String name = rs1. getString(1);
+        String mail = rs1.getString(2);
+        String subject = rs1.getString(3).trim();
+        String content = rs1.getString(4).trim();
+
+        content = content.replaceAll("\r\n","<br />");
+%>
+
 <HTML>
 <HEAD>
     <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="TEXT/HTML; CHARSET=euc-kr"/>
@@ -18,10 +55,10 @@
 </TABLE>
 
     <%
-//------------------------------- JSP CODE START ( 세션 변수에 따른 문서 선택 )
+    //------------------------------- JSP CODE START ( 세션 변수에 따른 문서 선택 )
 	String member_id = (String)session.getAttribute("member_id");
 	if(member_id == null) {
-%>
+    %>
 <jsp:include page="../member/LoginForm.jsp"/>
     <%
 	} else { 
@@ -38,22 +75,22 @@
 
     <TR>
         <TD WIDTH=120 ALIGN=CENTER><B>이름</B></TD>
-        <TD WIDTH=500>홍길동</TD>
+        <TD WIDTH=500><%=name%></TD>
     </TR>
 
     <TR>
         <TD WIDTH=120 ALIGN=CENTER><B>전자우편</B></TD>
-        <TD WIDTH=500>hong@abc.com</TD>
+        <TD WIDTH=500><%=mail%></TD>
     </TR>
 
     <TR>
         <TD WIDTH=120 ALIGN=CENTER><B>제목</B></TD>
-        <TD WIDTH=500>홍길동입니다.</TD>
+        <TD WIDTH=500><%=subject%></TD>
     </TR>
 
     <TR>
         <TD WIDTH=120 ALIGN=CENTER><B>내용</B></TD>
-        <TD WIDTH=500>안녕하세요.<BR>홍길동입니다.</TD>
+        <TD WIDTH=500><%=content%></TD>
     </TR>
 
     <TR>
@@ -80,6 +117,15 @@
     </TR>
 
 </TABLE>
+<%
+    }catch(SQLException e){
+        e.printStackTrace();
+    }finally {
+        rs1.close();
+        pstmt.close();
+        conn.close();
+    }
+%>
 
 </BODY>
 </HTML>
