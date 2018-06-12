@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="java.net.URLEncoder" %>
+
+<% request.setCharacterEncoding("utf-8");%>
+
 <%
     // 레코드 식별자 추출
     int rno = Integer.parseInt(request.getParameter("rno"));
@@ -156,7 +159,7 @@
     <TR ALIGN=CENTER>
         <TD>
             <IMG SRC="../images/btn_mdfy.gif" STYLE=CURSOR:HAND onClick="javascript:CheckForm(BoardModify)">&nbsp;&nbsp;
-            <IMG SRC="../images/btn_cancel.gif" STYLE=CURSOR:HAND onClick="javascript:location.replace('BoardContent.jsp?rno=<%=rno%>&column=<%=column%>&key=<%=encoded_key%>')">
+            <IMG SRC="../images/btn_cancel.gif" STYLE=CURSOR:HAND onClick="javascript:location.replace('BoardContent.jsp?rno=<%=rno%>&column=<b%=column%>&key=<%=encoded_key%>')">
         </TD>
     </TR>
 

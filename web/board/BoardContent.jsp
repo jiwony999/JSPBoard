@@ -3,6 +3,10 @@
 <%@ page import="java.net.URLEncoder" %>
 
 <%
+    request.setCharacterEncoding("utf-8");
+%>
+
+<%
     int rno = Integer.parseInt(request.getParameter("rno"));
 
     Connection conn = null;

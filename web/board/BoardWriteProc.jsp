@@ -20,7 +20,6 @@
         conn = DriverManager.getConnection(jdbcUrl,jdbcId,jdbcPw);
 
         // 전송된 데이터 추출
-        String name = request.getParameter("name");
         String mail = request.getParameter("mail");
         String subject = request.getParameter("subject");
         String content = request.getParameter("content");
