@@ -1,3 +1,4 @@
+<%@ page import="java.net.URLEncoder" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 
 <HTML>
@@ -64,7 +65,20 @@
     }
 //------------------------------- JSP CODE END 	
 %>
+<%
+    String encoded_key = "";
 
+    String column = request.getParameter("column");
+    if (column == null)
+        column = "";
+
+    String key = request.getParameter("key");
+    if (key != null) {
+        encoded_key = URLEncoder.encode(key,"utf-8");
+    } else {
+        key ="";
+    }
+%>
 <FORM NAME="BoardWrite" METHOD=POST ACTION="BoardWriteProc.jsp">
 
     <TABLE WIDTH=620 BORDER=1 CELLSPACING=0 CELLPADDING=2 ALIGN=CENTER>
@@ -119,11 +133,11 @@
 
     <TR ALIGN=CENTER>
         <TD WIDTH=110 ALIGN=LEFT>
-            <IMG SRC="../images/btn_list.gif" onClick="javascript:location.replace('BoardList.jsp')" STYLE=CURSOR:HAND>
+            <IMG SRC="../images/btn_list.gif" onClick="javascript:location.replace('BoardList.jsp?column=<%=column%>&key=<%=encoded_key%>')" STYLE=CURSOR:HAND>
         </TD>
         <TD WIDTH=400 ALIGN=CENTER>
             <IMG SRC="../images/btn_save.gif" onClick="CheckForm(BoardWrite)" STYLE=CURSOR:HAND>&nbsp;&nbsp;
-            <IMG SRC="../images/btn_cancel.gif" STYLE=CURSOR:HAND>
+            <IMG SRC="../images/btn_cancel.gif" onClick="javascript:location.replace('BoardList.jsp?column=<%=column%>&key=<%=encoded_key%>')" STYLE=CURSOR:HAND>
         </TD>
         <TD WIDTH=110 ALIGN=LEFT>&nbsp;</TD>
     </TR>
