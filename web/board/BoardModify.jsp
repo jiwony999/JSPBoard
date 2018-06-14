@@ -14,9 +14,9 @@
         column = "";
     String key = request.getParameter("key");
     if (key != null) {
-        encoded_key = URLEncoder.encode(key,"utf-8");
+        encoded_key = URLEncoder.encode(key, "utf-8");
     } else {
-        key ="";
+        key = "";
     }
     try {
         Class.forName("com.mysql.jdbc.Driver");
@@ -24,13 +24,14 @@
         String jdbcId = "jspuser";
         String jdbcPw = "jsppass";
         conn = DriverManager.getConnection(jdbcUrl, jdbcId, jdbcPw);
+
         String Query1 = "UPDATE board set UsrRefer = UsrRefer+1 where RcdNo=?";
         pstmt = conn.prepareStatement(Query1);
-        pstmt.setInt(1,rno);
+        pstmt.setInt(1, rno);
         pstmt.executeUpdate();
         String Query2 = "select UsrName, UsrMail,UsrSubject, UsrContent from board  where RcdNo=?";
         pstmt = conn.prepareStatement(Query2);
-        pstmt.setInt(1,rno);
+        pstmt.setInt(1, rno);
         rs1 = pstmt.executeQuery();
         rs1.next();
         String name = rs1.getString(1);
@@ -48,7 +49,7 @@
 
     <script type="text/javascript">
         function CheckForm(form) {
-            if(!form.pass.value){
+            if (!form.pass.value) {
                 alert("패스워드를 입력하세요");
                 form.pass.focus();
                 return true;
@@ -89,7 +90,8 @@
 
         <TR>
             <TD WIDTH=120 ALIGN=CENTER><B>이름</B></TD>
-            <TD WIDTH=500><%=name%></TD>
+            <TD WIDTH=500><%=name%>
+            </TD>
         </TR>
 
         <TR>
@@ -142,7 +144,8 @@
     <TR ALIGN=CENTER>
         <TD>
             <IMG SRC="../images/btn_mdfy.gif" STYLE=CURSOR:HAND onclick="javascript:CheckForm(BoardModify)">&nbsp;&nbsp;
-            <IMG SRC="../images/btn_cancel.gif" STYLE=CURSOR:HAND onClick="javascript:location.replace('BoardList.jsp?rno=<%=rno%>&column=<%=column%>&key=<%=encoded_key%>')">
+            <IMG SRC="../images/btn_cancel.gif" STYLE=CURSOR:HAND
+                 onClick="javascript:location.replace('BoardList.jsp?rno=<%=rno%>&column=<%=column%>&key=<%=encoded_key%>')">
         </TD>
     </TR>
 
@@ -152,9 +155,9 @@
 </HTML>
 
 <%
-    }catch(SQLException e) {
+    } catch (SQLException e) {
         e.printStackTrace();
-    }finally {
+    } finally {
         rs1.close();
         pstmt.close();
         conn.close();

@@ -5,6 +5,7 @@
 <% request.setCharacterEncoding("utf-8"); %>
 
 <%
+    String passwd = request.getParameter("pass");
     int rno = Integer.parseInt(request.getParameter("rno"));
 
     // 변수 및 객체 선언
@@ -14,6 +15,7 @@
 
     String encoded_key = "";
 
+    // 키워드 데이터 추출
     String colunmn = request.getParameter("column");
     if(colunmn == null) colunmn = null;
     String key = request.getParameter("key");
@@ -21,37 +23,37 @@
         encoded_key = URLEncoder.encode(key,"utf-8");
     else
         key = "";
+
+
     try {
+        // jdbc설정
         Class.forName("com.mysql.jdbc.Driver");
         String jdbcUrl = "jdbc:mysql://localhost:3306/jspdb";
         String jdbcId = "jspuser";
         String jdbcPw = "jsppass";
         conn = DriverManager.getConnection(jdbcUrl, jdbcId, jdbcPw);
-        String mail = request.getParameter("mail");
-        String subject = request.getParameter("subject");
-        String content = request.getParameter("content");
-        String passwd = request.getParameter("pass");
+
+        // 레코드 패스워드 추출
         String Query1 = "Select UsrPass from board where RcdNo=?";
         pstmt = conn.prepareStatement(Query1);
         pstmt.setInt(1,rno);
         rs=pstmt.executeQuery();
+
         rs.next();
         String dbPass = rs.getString(1);
+
         if(passwd.equals(dbPass)){
-            String Query2 = "update board set UsrMail=?, UsrSubject=?, UsrContent=? where RcdNo=?";
+            String Query2 = "delete from board where RcdNo="+rno;
             pstmt = conn.prepareStatement(Query2);
-            pstmt.setString(1,mail);
-            pstmt.setString(2,subject);
-            pstmt.setString(3,content);
-            pstmt.setInt(4,rno);
             pstmt.executeUpdate();
+
             rs.close();
             pstmt.close();
             conn.close();
-            String url = "BoardContent.jsp?rno=" + rno +"&column=" + colunmn +"&key="+ encoded_key;
+
+            String url = "BoardList.jsp?rno=" + rno +"&column=" + colunmn +"&key="+ encoded_key;
             response.sendRedirect(url);
-        }
-        else{
+        } else {
             rs.close();
             pstmt.close();
             conn.close();
