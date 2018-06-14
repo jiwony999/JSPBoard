@@ -1,81 +1,75 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR" %>
-<%@ page import="java.sql.*" %>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <%@ page import="java.net.URLEncoder" %>
+<%@ page import="java.sql.*" %>
 
-<% request.setCharacterEncoding("utf-8");%>
 
 <%
-    // ·¹ÄÚµå ½Äº°ÀÚ ÃßÃâ
     int rno = Integer.parseInt(request.getParameter("rno"));
-
     Connection conn = null;
     PreparedStatement pstmt = null;
-    ResultSet rs = null;
-
+    ResultSet rs1 = null;
     String encoded_key = "";
-
-    // Å°¿öµå µ¥ÀÌÅÍ ÃßÃâ
     String column = request.getParameter("column");
     if (column == null)
         column = "";
-
     String key = request.getParameter("key");
     if (key != null) {
-        encoded_key = URLEncoder.encode(key, "utf-8");
+        encoded_key = URLEncoder.encode(key,"utf-8");
     } else {
-        key = "";
+        key ="";
     }
-
-
     try {
-        // jdbc ¼³Á¤
         Class.forName("com.mysql.jdbc.Driver");
         String jdbcUrl = "jdbc:mysql://localhost:3306/jspdb";
         String jdbcId = "jspuser";
         String jdbcPw = "jsppass";
         conn = DriverManager.getConnection(jdbcUrl, jdbcId, jdbcPw);
-
-        // ÁúÀÇ ¼öÇà ¹× ÇÊµå °ª ÃßÃâ
-        String Query1 = "select UsrName, UsrMail,UsrSubject, UsrContent from board where RcdNo=?";
+        String Query1 = "UPDATE board set UsrRefer = UsrRefer+1 where RcdNo=?";
         pstmt = conn.prepareStatement(Query1);
-        pstmt.setInt(1, rno);
-
-        rs = pstmt.executeQuery();
-        rs.next();
-
-        String name = rs.getString(1);
-        String mail = rs.getString(2);
-        String subject = rs.getString(3);
-        String content = rs.getString(4);
+        pstmt.setInt(1,rno);
+        pstmt.executeUpdate();
+        String Query2 = "select UsrName, UsrMail,UsrSubject, UsrContent from board  where RcdNo=?";
+        pstmt = conn.prepareStatement(Query2);
+        pstmt.setInt(1,rno);
+        rs1 = pstmt.executeQuery();
+        rs1.next();
+        String name = rs1.getString(1);
+        String mail = rs1.getString(2);
+        String subject = rs1.getString(3).trim();
+        String content = rs1.getString(4).trim();
+        //content = content.replaceAll("\r\n","<BR>");
 %>
+
+
 <HTML>
 <HEAD>
-    <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="TEXT/HTML; CHARSET=euc-kr"/>
+    <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="TEXT/HTML; CHARSET=utf-8"/>
     <LINK REL="stylesheet" type="text/css" href="../include/style.css"/>
-    <TITLE>°Ô½Ã±Û ¼öÁ¤</TITLE>
 
-    <script>
+    <script type="text/javascript">
         function CheckForm(form) {
-            if (!form.pass.value) {
-                alert("ÆĞ½º¿öµå¸¦ ÀÔ·ÂÇÏ¼¼¿ä");
+            if(!form.pass.value){
+                alert("íŒ¨ìŠ¤ì›Œë“œë¥¼ ì…ë ¥í•˜ì„¸ìš”");
                 form.pass.focus();
                 return true;
             }
             form.submit();
         }
     </script>
+
+    <TITLE>ê²Œì‹œê¸€ ìˆ˜ì •</TITLE>
 </HEAD>
 
 <BODY>
 
 <TABLE WIDTH=620 HEIGHT=40 BORDER=0 CELLSPACING=1 CELLPADDING=1 ALIGN=CENTER>
     <TR BGCOLOR=#A0A0A0>
-        <TD ALIGN=CENTER><FONT SIZE=4><B>°Ô½ÃÆÇ ( °Ô½Ã±Û ¼öÁ¤ )</B></FONT></TD>
+        <TD ALIGN=CENTER><FONT SIZE=4><B>ê²Œì‹œíŒ ( ê²Œì‹œê¸€ ìˆ˜ì • )</B></FONT></TD>
     </TR>
 </TABLE>
 
 <%
-    //------------------------------- JSP CODE START ( ¼¼¼Ç º¯¼ö¿¡ µû¸¥ ¹®¼­ ¼±ÅÃ )
+    //------------------------------- JSP CODE START ( ì„¸ì…˜ ë³€ìˆ˜ì— ë”°ë¥¸ ë¬¸ì„œ ì„ íƒ )
     String member_id = (String) session.getAttribute("member_id");
     if (member_id == null) {
 %>
@@ -86,54 +80,54 @@
 <jsp:include page="../member/LoginState.jsp"/>
 <%
     }
-//------------------------------- JSP CODE END 	
+//------------------------------- JSP CODE END
 %>
 
-<FORM NAME="BoardModify" METHOD=POST ACTION="BoardModifyProc.jsp?rno=<%=rno%>&column=<%=column%>&key=<%=encoded_key%>">
+<FORM NAME="BoardModify" METHOD=POST ACTION="BoardModifyProc.jsp?rno=<%=rno%>&column=<%=column%>&key=<%=key%>">
 
     <TABLE WIDTH=620 BORDER=1 CELLSPACING=0 CELLPADDING=1 ALIGN=CENTER>
 
         <TR>
-            <TD WIDTH=120 ALIGN=CENTER><B>ÀÌ¸§</B></TD>
+            <TD WIDTH=120 ALIGN=CENTER><B>ì´ë¦„</B></TD>
             <TD WIDTH=500><%=name%></TD>
         </TR>
 
         <TR>
-            <TD WIDTH=120 ALIGN=CENTER><B>ÀüÀÚ¿ìÆí</B></TD>
+            <TD WIDTH=120 ALIGN=CENTER><B>ì „ììš°í¸</B></TD>
             <TD WIDTH=500>
                 <INPUT TYPE=TEXT NAME="mail" SIZE=60 style="ime-mode:inactive" value="<%=mail%>">
             </TD>
         </TR>
 
         <TR>
-            <TD WIDTH=120 ALIGN=CENTER><B>Á¦¸ñ</B></TD>
+            <TD WIDTH=120 ALIGN=CENTER><B>ì œëª©</B></TD>
             <TD WIDTH=500>
                 <INPUT TYPE=TEXT NAME="subject" SIZE=70 value="<%=subject%>">
             </TD>
         </TR>
 
         <TR>
-            <TD WIDTH=120 ALIGN=CENTER><B>³»¿ë</B></TD>
+            <TD WIDTH=120 ALIGN=CENTER><B>ë‚´ìš©</B></TD>
             <TD WIDTH=500>
                 <TEXTAREA NAME="content" COLS=70 ROWS=5><%=content%></TEXTAREA>
             </TD>
         </TR>
 
         <TR>
-            <TD WIDTH=120 ALIGN=CENTER><B>Ã·ºÎ ÆÄÀÏ</B></TD>
+            <TD WIDTH=120 ALIGN=CENTER><B>ì²¨ë¶€ íŒŒì¼</B></TD>
             <TD WIDTH=500>
-                Ã·ºÎµÈ ÆÄÀÏÀÌ ¾ø½À´Ï´Ù.
+                ì²¨ë¶€ëœ íŒŒì¼ì´ ì—†ìŠµë‹ˆë‹¤.
             </TD>
         </TR>
         <TR>
-            <TD WIDTH=120 ALIGN=CENTER><B>»õÃ·ºÎÆÄÀÏ</B></TD>
+            <TD WIDTH=120 ALIGN=CENTER><B>ìƒˆì²¨ë¶€íŒŒì¼</B></TD>
             <TD WIDTH=500>
                 <INPUT TYPE=FILE NAME="filename" SIZE=50>&nbsp;
             </TD>
         </TR>
 
         <TR>
-            <TD WIDTH=120 ALIGN=CENTER><B>ÆĞ½º¿öµå</B></TD>
+            <TD WIDTH=120 ALIGN=CENTER><B>íŒ¨ìŠ¤ì›Œë“œ</B></TD>
             <TD WIDTH=500>
                 <INPUT TYPE=PASSWORD NAME="pass" SIZE=20>
             </TD>
@@ -142,24 +136,13 @@
     </TABLE>
 
 </FORM>
-<%
-    }
-    catch (SQLException e) {
-        e.printStackTrace();
-    } finally {
-        // °´Ã¼ Á¦°Å
-        rs.close();
-        pstmt.close();
-        conn.close();
-    }
-%>
 
 <TABLE WIDTH=620 HEIGHT=50 BORDER=0 CELLSPACING=1 CELLPADDING=1 ALIGN=CENTER>
 
     <TR ALIGN=CENTER>
         <TD>
-            <IMG SRC="../images/btn_mdfy.gif" STYLE=CURSOR:HAND onClick="javascript:CheckForm(BoardModify)">&nbsp;&nbsp;
-            <IMG SRC="../images/btn_cancel.gif" STYLE=CURSOR:HAND onClick="javascript:location.replace('BoardContent.jsp?rno=<%=rno%>&column=<b%=column%>&key=<%=encoded_key%>')">
+            <IMG SRC="../images/btn_mdfy.gif" STYLE=CURSOR:HAND onclick="javascript:CheckForm(BoardModify)">&nbsp;&nbsp;
+            <IMG SRC="../images/btn_cancel.gif" STYLE=CURSOR:HAND onClick="javascript:location.replace('BoardList.jsp?rno=<%=rno%>&column=<%=column%>&key=<%=encoded_key%>')">
         </TD>
     </TR>
 
@@ -167,3 +150,13 @@
 
 </BODY>
 </HTML>
+
+<%
+    }catch(SQLException e) {
+        e.printStackTrace();
+    }finally {
+        rs1.close();
+        pstmt.close();
+        conn.close();
+    }
+%>
