@@ -8,40 +8,40 @@
 	Connection conn = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
-	
+
 	String encoded_key = "";
-	
+
 	String column = request.getParameter("column");
 	if (column == null) {
 		column = "";
 	}
-	
+
 	String key = request.getParameter("key");
 	if (key != null) {
 		encoded_key = URLEncoder.encode(key, "utf-8");
 	} else {
 		key = "";
 	}
-	
+
 	// JDBC 설정
-	
+
 	try {
 
-Class.forName("com.mysql.jdbc.Driver");
-	 String jdbcUrl = "jdbc:mysql://localhost:3306/jspdb?useSSL=false&serverTimezone=UTC";
-  String jdbcId = "jspuser";
-	  String jdbcPw = "jsppass";
-	conn = DriverManager.getConnection(jdbcUrl, jdbcId, jdbcPw);
+		Class.forName("com.mysql.jdbc.Driver");
+		String jdbcUrl = "jdbc:mysql://localhost:3306/jspdb?useSSL=false&serverTimezone=UTC";
+		String jdbcId = "jspuser";
+		String jdbcPw = "jsppass";
+		conn = DriverManager.getConnection(jdbcUrl, jdbcId, jdbcPw);
 
-	String Query1 = "select UsrSubject, UsrContent from board where RcdNo=?";
-	pstmt = conn.prepareStatement(Query1);
-	pstmt.setInt(1, rno);
-	rs = pstmt.executeQuery();
-	rs.next();
-	
-	String subject = rs.getString(1).trim();
-	String content = rs.getString(2).trim();
-	content = content.replaceAll("\r\n", "<br>");
+		String Query1 = "select UsrSubject, UsrContent from board where RcdNo=?";
+		pstmt = conn.prepareStatement(Query1);
+		pstmt.setInt(1, rno);
+		rs = pstmt.executeQuery();
+		rs.next();
+
+		String subject = rs.getString(1).trim();
+		String content = rs.getString(2).trim();
+		content = content.replaceAll("\r\n", "<br>");
 %>
 <HTML>
 <HEAD>
@@ -50,39 +50,38 @@ Class.forName("com.mysql.jdbc.Driver");
 <script language="javascript" src="../include/scripts.js"></script>
 
 <script>
-        // 필수 입력 데이터 검사
-        function CheckForm(form) {
-            if (!form.name.value) {
-                alert("성명을 입력하세요");
-                form.name.focus();
-                return true;
-            }
+	// 필수 입력 데이터 검사
+	function CheckForm(form) {
+		if (!form.name.value) {
+			alert("성명을 입력하세요");
+			form.name.focus();
+			return true;
+		}
 
-           if (form.mail.value) {
-                if (!isCorrectEmail('BoardReply', 'mail')) {
-                    alert("이메일 형식이 올바르지 않습니다.");
-                    form.mail.focus();
-                    form.mail.select();
-                    return true;
-                }
-            }
+		if (form.mail.value) {
+			if (!isCorrectEmail('BoardReply', 'mail')) {
+				alert("이메일 형식이 올바르지 않습니다.");
+				form.mail.focus();
+				form.mail.select();
+				return true;
+			}
+		}
 
-            if (!form.subject.value) {
-                alert("게시판의 제목을 입력하세요");
-                form.subject.focus();
-                return true;
-            }
+		if (!form.subject.value) {
+			alert("게시판의 제목을 입력하세요");
+			form.subject.focus();
+			return true;
+		}
 
-            if (!form.pass.value) {
-                alert("패스워드를 입력하세요");
-                form.pass.focus();
-                return true;
-            }
+		if (!form.pass.value) {
+			alert("패스워드를 입력하세요");
+			form.pass.focus();
+			return true;
+		}
 
-            form.submit();
-        }
-
-    </script>
+		form.submit();
+	}
+</script>
 
 <TITLE>답변글 입력</TITLE>
 </HEAD>
@@ -97,38 +96,37 @@ Class.forName("com.mysql.jdbc.Driver");
 	</TABLE>
 
 	<%
-
-
-//------------------------------- JSP CODE START ( 세션 변수에 따른 문서 선택 )
-	String member_id = (String)session.getAttribute("member_id");
-	if(member_id == null) {
-%>
+		//------------------------------- JSP CODE START ( 세션 변수에 따른 문서 선택 )
+			String member_id = (String) session.getAttribute("member_id");
+			if (member_id == null) {
+	%>
 	<jsp:include page="../member/LoginForm.jsp" />
-	<% 
-	} else { 
-%>
+	<%
+		} else {
+	%>
 	<jsp:include page="../member/LoginState.jsp" />
-	<% 
-	}
-//------------------------------- JSP CODE END 	
-%>
+	<%
+		}
+			//------------------------------- JSP CODE END
+	%>
 
 	<TABLE WIDTH=620 BORDER=1 CELLSPACING=0 CELLPADDING=2 ALIGN=CENTER>
 
 		<TR>
 			<TD WIDTH=120 ALIGN=CENTER><B>원글제목</B></TD>
-			<TD WIDTH=500><%=subject %></TD>
+			<TD WIDTH=500><%=subject%></TD>
 		</TR>
 
 		<TR>
 			<TD WIDTH=120 ALIGN=CENTER><B>원글내용</B></TD>
-			<TD WIDTH=500><%=content %></TD>
+			<TD WIDTH=500><%=content%></TD>
 		</TR>
 
 	</TABLE>
 	<BR>
 
-	<FORM NAME="BoardReply" METHOD=POST ACTION="BoardReplyProc.jsp?rno=<%=rno%>&column=<%=column%>&key=<%=encoded_key%>">
+	<FORM NAME="BoardReply" METHOD=POST
+		ACTION="BoardReplyProc.jsp?rno=<%=rno%>&column=<%=column%>&key=<%=encoded_key%>">
 
 		<TABLE WIDTH=620 BORDER=1 CELLSPACING=0 CELLPADDING=2 ALIGN=CENTER>
 
@@ -171,23 +169,25 @@ Class.forName("com.mysql.jdbc.Driver");
 		</TABLE>
 
 	</FORM>
-	
+
 	<%
-	} catch(SQLException e) {
-		e.printStackTrace();
-	} finally {
-		rs.close();
-		pstmt.close();
-		conn.close();
-	}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			rs.close();
+			pstmt.close();
+			conn.close();
+		}
 	%>
 
 	<TABLE WIDTH=620 HEIGHT=50 BORDER=0 CELLSPACING=1 CELLPADDING=1
 		ALIGN=CENTER>
 
 		<TR ALIGN=CENTER>
-			<TD><IMG SRC="../images/btn_save.gif" STYLE="CURSOR: HAND" onClick="javascript:CheckForm(BoardReply)">&nbsp;&nbsp;
-				<IMG SRC="../images/btn_cancel.gif" STYLE="CURSOR: HAND" onClick="javascript:location.replace('BoardContent.jsp?rno=<%=rno%>&column=<%=column%>&key=<%=encoded_key%>')" ></TD>
+			<TD><IMG SRC="../images/btn_save.gif" STYLE="CURSOR: HAND"
+				onClick="javascript:CheckForm(BoardReply)">&nbsp;&nbsp; <IMG
+				SRC="../images/btn_cancel.gif" STYLE="CURSOR: HAND"
+				onClick="javascript:location.replace('BoardContent.jsp?rno=<%=rno%>&column=<%=column%>&key=<%=encoded_key%>')"></TD>
 		</TR>
 
 	</TABLE>
