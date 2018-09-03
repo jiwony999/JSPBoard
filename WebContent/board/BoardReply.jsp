@@ -1,110 +1,196 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<%@ page import="java.sql.*"%>
+<%@ page import="java.net.URLEncoder"%>
+<%
+	int rno = Integer.parseInt(request.getParameter("rno"));
 
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+	
+	String encoded_key = "";
+	
+	String column = request.getParameter("column");
+	if (column == null) {
+		column = "";
+	}
+	
+	String key = request.getParameter("key");
+	if (key != null) {
+		encoded_key = URLEncoder.encode(key, "utf-8");
+	} else {
+		key = "";
+	}
+	
+	// JDBC ì„¤ì •
+	
+	try {
+
+Class.forName("com.mysql.jdbc.Driver");
+	 String jdbcUrl = "jdbc:mysql://localhost:3306/jspdb?useSSL=false&serverTimezone=UTC";
+  String jdbcId = "jspuser";
+	  String jdbcPw = "jsppass";
+	conn = DriverManager.getConnection(jdbcUrl, jdbcId, jdbcPw);
+
+	String Query1 = "select UsrSubject, UsrContent from board where RcdNo=?";
+	pstmt = conn.prepareStatement(Query1);
+	pstmt.setInt(1, rno);
+	rs = pstmt.executeQuery();
+	rs.next();
+	
+	String subject = rs.getString(1).trim();
+	String content = rs.getString(2).trim();
+	content = content.replaceAll("\r\n", "<br>");
+%>
 <HTML>
 <HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="TEXT/HTML; CHARSET=euc-kr"/>
-	<LINK REL="stylesheet" type="text/css" href="../include/style.css"/>		
-	<TITLE>´äº¯±Û ÀÔ·Â</TITLE>
+<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="TEXT/HTML; CHARSET=euc-kr" />
+<LINK REL="stylesheet" type="text/css" href="../include/style.css" />
+<script language="javascript" src="../include/scripts.js"></script>
+
+<script>
+        // í•„ìˆ˜ ì…ë ¥ ë°ì´í„° ê²€ì‚¬
+        function CheckForm(form) {
+            if (!form.name.value) {
+                alert("ì„±ëª…ì„ ì…ë ¥í•˜ì„¸ìš”");
+                form.name.focus();
+                return true;
+            }
+
+           if (form.mail.value) {
+                if (!isCorrectEmail('BoardReply', 'mail')) {
+                    alert("ì´ë©”ì¼ í˜•ì‹ì´ ì˜¬ë°”ë¥´ì§€ ì•ŠìŠµë‹ˆë‹¤.");
+                    form.mail.focus();
+                    form.mail.select();
+                    return true;
+                }
+            }
+
+            if (!form.subject.value) {
+                alert("ê²Œì‹œíŒì˜ ì œëª©ì„ ì…ë ¥í•˜ì„¸ìš”");
+                form.subject.focus();
+                return true;
+            }
+
+            if (!form.pass.value) {
+                alert("íŒ¨ìŠ¤ì›Œë“œë¥¼ ì…ë ¥í•˜ì„¸ìš”");
+                form.pass.focus();
+                return true;
+            }
+
+            form.submit();
+        }
+
+    </script>
+
+<TITLE>ë‹µë³€ê¸€ ì…ë ¥</TITLE>
 </HEAD>
 
 <BODY>
 
-<TABLE WIDTH=620 HEIGHT=40 BORDER=0 CELLSPACING=1 CELLPADDING=1 ALIGN=CENTER>
-	<TR BGCOLOR=#A0A0A0>
-		<TD ALIGN=CENTER><FONT SIZE=4><B>°Ô½ÃÆÇ ( ´äº¯±Û ÀÔ·Â )</B></FONT></TD>
-	</TR>
-</TABLE>
+	<TABLE WIDTH=620 HEIGHT=40 BORDER=0 CELLSPACING=1 CELLPADDING=1
+		ALIGN=CENTER>
+		<TR BGCOLOR=#A0A0A0>
+			<TD ALIGN=CENTER><FONT SIZE=4><B>ê²Œì‹œíŒ ( ë‹µë³€ê¸€ ì…ë ¥ )</B></FONT></TD>
+		</TR>
+	</TABLE>
 
-<%
-//------------------------------- JSP CODE START ( ¼¼¼Ç º¯¼ö¿¡ µû¸¥ ¹®¼­ ¼±ÅÃ )
+	<%
+
+
+//------------------------------- JSP CODE START ( ì„¸ì…˜ ë³€ìˆ˜ì— ë”°ë¥¸ ë¬¸ì„œ ì„ íƒ )
 	String member_id = (String)session.getAttribute("member_id");
 	if(member_id == null) {
 %>
-		<jsp:include page="../member/LoginForm.jsp"/>
-<% 
+	<jsp:include page="../member/LoginForm.jsp" />
+	<% 
 	} else { 
-%>		
-		<jsp:include page="../member/LoginState.jsp"/>	
-<% 
+%>
+	<jsp:include page="../member/LoginState.jsp" />
+	<% 
 	}
 //------------------------------- JSP CODE END 	
 %>
 
-<TABLE WIDTH=620 BORDER=1 CELLSPACING=0 CELLPADDING=2 ALIGN=CENTER>
+	<TABLE WIDTH=620 BORDER=1 CELLSPACING=0 CELLPADDING=2 ALIGN=CENTER>
 
-	<TR>
-		<TD WIDTH=120 ALIGN=CENTER><B>¿ø±ÛÁ¦¸ñ</B></TD>
-		<TD WIDTH=500>¿ø±ÛÀÇ Á¦¸ñÀÔ´Ï´Ù</TD>
-	</TR>
-	
-	<TR>
-		<TD WIDTH=120 ALIGN=CENTER><B>¿ø±Û³»¿ë</B></TD>
-		<TD WIDTH=500>¿ø±ÛÀÇ ³»¿ëÀÔ´Ï´Ù.</TD>
-	</TR>
-	
-</TABLE>
-<BR>
+		<TR>
+			<TD WIDTH=120 ALIGN=CENTER><B>ì›ê¸€ì œëª©</B></TD>
+			<TD WIDTH=500><%=subject %></TD>
+		</TR>
 
-<FORM NAME="BoardReply" METHOD=POST ACTION="BoardReplyProc.jsp">
+		<TR>
+			<TD WIDTH=120 ALIGN=CENTER><B>ì›ê¸€ë‚´ìš©</B></TD>
+			<TD WIDTH=500><%=content %></TD>
+		</TR>
 
-<TABLE WIDTH=620 BORDER=1 CELLSPACING=0 CELLPADDING=2 ALIGN=CENTER>
+	</TABLE>
+	<BR>
 
-	<TR>
-		<TD WIDTH=120 ALIGN=CENTER><B>ÀÌ¸§</B></TD>
-		<TD WIDTH=500>
-			<INPUT TYPE=TEXT NAME="name" SIZE=20 style="ime-mode:active">
-		</TD>
-	</TR>
-	
-	<TR>
-		<TD WIDTH=120 ALIGN=CENTER><B>ÀüÀÚ¿ìÆí</B></TD>
-		<TD WIDTH=500>
-			<INPUT TYPE=TEXT NAME="mail" SIZE=60 style="ime-mode:inactive">
-		</TD>
-	</TR>
-	
-	<TR>
-		<TD WIDTH=120 ALIGN=CENTER><B>Á¦¸ñ</B></TD>
-		<TD WIDTH=500>
-			<INPUT TYPE=TEXT NAME="subject" SIZE=70>
-		</TD>
-	</TR>
-	
-	<TR>
-		<TD WIDTH=120 ALIGN=CENTER><B>³»¿ë</B></TD>
-		<TD WIDTH=500>
-			<TEXTAREA NAME="content" COLS=70 ROWS=5></TEXTAREA>
-		</TD>
-	</TR>
-	
-	<TR>
-		<TD WIDTH=120 ALIGN=CENTER><B>ÆÄÀÏÃ·ºÎ</B></TD>
-		<TD WIDTH=500>
-			<INPUT TYPE=FILE NAME="filename" SIZE=60>
-		</TD>
-	</TR> 
-	  
-	<TR>
-		<TD WIDTH=120 ALIGN=CENTER><B>ÆĞ½º¿öµå</B></TD>
-		<TD WIDTH=500>
-			<INPUT TYPE=PASSWORD NAME="pass" SIZE=20>
-		</TD>
-	</TR>
-	
-</TABLE>
+	<FORM NAME="BoardReply" METHOD=POST ACTION="BoardReplyProc.jsp?rno=<%=rno%>&column=<%=column%>&key=<%=encoded_key%>">
 
-</FORM>
+		<TABLE WIDTH=620 BORDER=1 CELLSPACING=0 CELLPADDING=2 ALIGN=CENTER>
 
-<TABLE WIDTH=620 HEIGHT=50 BORDER=0 CELLSPACING=1 CELLPADDING=1 ALIGN=CENTER>
+			<TR>
+				<TD WIDTH=120 ALIGN=CENTER><B>ì´ë¦„</B></TD>
+				<TD WIDTH=500><INPUT TYPE=TEXT NAME="name" SIZE=20
+					style="ime-mode: active" onKeyDown="javascript:Korean()"></TD>
+			</TR>
 
-	<TR ALIGN=CENTER>
-		<TD>
-			<IMG SRC="../images/btn_save.gif" STYLE=CURSOR:HAND>&nbsp;&nbsp;
-			<IMG SRC="../images/btn_cancel.gif" STYLE=CURSOR:HAND>
-		</TD>
-	</TR>
+			<TR>
+				<TD WIDTH=120 ALIGN=CENTER><B>ì „ììš°í¸</B></TD>
+				<TD WIDTH=500><INPUT TYPE=TEXT NAME="mail" SIZE=60
+					style="ime-mode: inactive"></TD>
+			</TR>
+
+			<TR>
+				<TD WIDTH=120 ALIGN=CENTER><B>ì œëª©</B></TD>
+				<TD WIDTH=500><INPUT TYPE=TEXT NAME="subject" SIZE=70>
+				</TD>
+			</TR>
+
+			<TR>
+				<TD WIDTH=120 ALIGN=CENTER><B>ë‚´ìš©</B></TD>
+				<TD WIDTH=500><TEXTAREA NAME="content" COLS=70 ROWS=5></TEXTAREA>
+				</TD>
+			</TR>
+
+			<TR>
+				<TD WIDTH=120 ALIGN=CENTER><B>íŒŒì¼ì²¨ë¶€</B></TD>
+				<TD WIDTH=500><INPUT TYPE=FILE NAME="filename" SIZE=60>
+				</TD>
+			</TR>
+
+			<TR>
+				<TD WIDTH=120 ALIGN=CENTER><B>íŒ¨ìŠ¤ì›Œë“œ</B></TD>
+				<TD WIDTH=500><INPUT TYPE=PASSWORD NAME="pass" SIZE=20>
+				</TD>
+			</TR>
+
+		</TABLE>
+
+	</FORM>
 	
-</TABLE>
+	<%
+	} catch(SQLException e) {
+		e.printStackTrace();
+	} finally {
+		rs.close();
+		pstmt.close();
+		conn.close();
+	}
+	%>
+
+	<TABLE WIDTH=620 HEIGHT=50 BORDER=0 CELLSPACING=1 CELLPADDING=1
+		ALIGN=CENTER>
+
+		<TR ALIGN=CENTER>
+			<TD><IMG SRC="../images/btn_save.gif" STYLE="CURSOR: HAND" onClick="javascript:CheckForm(BoardReply)">&nbsp;&nbsp;
+				<IMG SRC="../images/btn_cancel.gif" STYLE="CURSOR: HAND" onClick="javascript:location.replace('BoardContent.jsp?rno=<%=rno%>&column=<%=column%>&key=<%=encoded_key%>')" ></TD>
+		</TR>
+
+	</TABLE>
 
 </BODY>
 </HTML>

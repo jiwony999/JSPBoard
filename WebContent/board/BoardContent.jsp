@@ -124,7 +124,7 @@
         </TD>
         <TD WIDTH="310" ALIGN=RIGHT>
             <IMG SRC="../images/btn_reply.gif" STYLE=CURSOR:HAND
-                 onClick="javascript:location.replace('BoardReply.jsp?column=<%=column%>&key=<%=encoded_key%>')">&nbsp;&nbsp;
+                 onClick="javascript:location.replace('BoardReply.jsp?rno=<%=rno%>&column=<%=column%>&key=<%=encoded_key%>')">&nbsp;&nbsp;
             <IMG SRC="../images/btn_mdfy.gif" STYLE=CURSOR:HAND
                  onClick="javascript:location.replace('BoardModify.jsp?rno=<%=rno%>&column=<%=column%>&key=<%=encoded_key%>')">&nbsp;&nbsp;
             <IMG SRC="../images/btn_del.gif" STYLE=CURSOR:HAND onClick="javascript:location.replace('BoardDelete.jsp?rno=<%=rno%>&column=<%=column%>&key=<%=encoded_key%>')">
