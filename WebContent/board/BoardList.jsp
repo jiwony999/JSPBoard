@@ -117,8 +117,27 @@
                 String IMGURL ="../images/re.gif";
                 out.println("<IMG ALIGN=ABSMIDDLE SRC="+IMGURL+">");
             }
+            
+            int max_length = 34;
+            int cut_length = max_length-(level);
+            
+            if (subject.length() > cut_length) {
+            	subject = subject.substring(0, cut_length);
+            	subject = subject + "..";
+            }
          %>
-         <A HREF="BoardContent.jsp?rno=<%=rno%>&column=<%=column%>&key=<%=encoded_key%>"><%=subject%></A></TD>
+         <A HREF="BoardContent.jsp?rno=<%=rno%>&column=<%=column%>&key=<%=encoded_key%>"><%=subject%></A>
+         <%
+         	long now = System.currentTimeMillis();
+         long dist = (now-date) / 1000;
+         long during = 60*60*24;
+         
+         if (dist < during) {
+        	 String imgurl="../images/new.gif";
+        	 out.println("<img align=absmiddle width=15 height=12 src="+imgurl+">");
+         }
+         %>
+         </TD>
       <TD WIDTH=65 ALIGN=CENTER><%=name%></TD>
       <TD ALIGN=CENTER><%=today%></TD>
       <TD ALIGN=CENTER><%=refer%></TD>
