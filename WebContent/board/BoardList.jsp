@@ -38,10 +38,10 @@
 
         if (column.equals("") || key.equals("")) {
             Query1 = "select count(RcdNo) from board";
-            Query2 = "Select RcdNo, UsrSubject, UsrName, UsrDate, UsrRefer from board order by RcdNo desc";
+            Query2 = "Select RcdNo, UsrSubject, UsrName, UsrDate, UsrRefer from board order by GrpNo desc, RcdOrder asc";
         } else {
             Query1 = "select count(RcdNo) from board where  "+ column + " like '%" + key + "%'";
-            Query2 = "Select RcdNo, UsrSubject, UsrName, UsrDate, UsrRefer from board where "+column+ " like '%" + key + "%'order by RcdNo desc";
+            Query2 = "Select RcdNo, UsrSubject, UsrName, UsrDate, UsrRefer from board where "+column+ " like '%" + key + "%'order by GrpNo desc, RcdOrder asc";
         }
 
         pstmt = conn.prepareStatement(Query1);
