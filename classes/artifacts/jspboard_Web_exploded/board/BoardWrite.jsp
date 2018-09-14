@@ -79,7 +79,7 @@
         key ="";
     }
 %>
-<FORM NAME="BoardWrite" METHOD=POST ACTION="BoardWriteProc.jsp">
+<FORM NAME="BoardWrite" METHOD=POST ACTION="BoardWriteProc.jsp" enctype="multipart/form-data">
 
     <TABLE WIDTH=620 BORDER=1 CELLSPACING=0 CELLPADDING=2 ALIGN=CENTER>
 

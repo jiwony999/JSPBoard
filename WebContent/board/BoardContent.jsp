@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<%@ page language="java" contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
 <%@ page import="java.net.URLEncoder" %>
 
@@ -40,7 +40,7 @@
         pstmt.setInt(1, rno);
         pstmt.executeUpdate();
 
-        String Query2 = "select UsrName, UsrMail, UsrSubject, UsrContent from board where RcdNo=?";
+        String Query2 = "select UsrName, UsrMail, UsrSubject, UsrContent, UsrFileName, UsrFileSize from board where RcdNo=?";
         pstmt = conn.prepareStatement(Query2);
         pstmt.setInt(1, rno);
         rs1 = pstmt.executeQuery();
@@ -52,6 +52,9 @@
         String content = rs1.getString(4).trim();
 
         content = content.replaceAll("\r\n","<br />");
+
+        String filename = rs1.getString(5);
+        int filesize = rs1.getInt(6)/1000;
 %>
 
 <HTML>
@@ -110,7 +113,17 @@
 
     <TR>
         <TD WIDTH=120 ALIGN=CENTER><B>첨부파일</B></TD>
-        <TD WIDTH=500>첨부된 파일이 없습니다.</TD>
+        <TD WIDTH=500>
+            <%
+                if(filename == null) {
+                    out.println("첨부된 파일이 없습니다.");
+                } else {
+                    String imgurl = "../images/btn_filedown.gif";
+                    out.println("<img align=absmiddle src="+imgurl+">");
+                }
+            %>
+            <a href="filedownload.jsp?filename=<%=filename%>"><%=filename%></a>(<%=filesize%>Kbyte)
+        </TD>
     </TR>
 
 </TABLE>

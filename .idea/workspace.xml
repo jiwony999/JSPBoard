@@ -7,17 +7,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ccdc025e-4a5b-4127-91a1-2b8ba6549840" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/jspboard_Web_exploded.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/cos.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_12.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebContent/FileUpTest.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebContent/FileUpTestProc.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebContent/filedownload.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebContent/board/filedownload.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/WEB-INF/lib/cos.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebContent/app-realpath.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/app-realpath.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jspboard.iml" beforeDir="false" afterPath="$PROJECT_DIR$/jspboard.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/board/BoardContent.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/board/BoardContent.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/board/BoardWrite.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/board/BoardWrite.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebContent/board/BoardWriteProc.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebContent/board/BoardWriteProc.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/board/BoardContent.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/board/BoardContent.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/board/BoardWrite.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/board/BoardWrite.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/board/BoardWriteProc.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/board/BoardWriteProc.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,30 +43,31 @@
     <session id="-814759430">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="jsp" value="5" />
+          <entry key="jsp" value="9" />
           <entry key="png" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Image" value="4" />
-          <entry key="JSP" value="5" />
+          <entry key="JSP" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="jsp" value="1909" />
+          <entry key="jsp" value="2766" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JSP" value="1909" />
+          <entry key="JSP" value="2766" />
         </counts>
       </usages-collector>
     </session>
@@ -88,17 +86,53 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/FileUpTestProc.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="41" column="37" lean-forward="true" selection-start-line="41" selection-start-column="37" selection-end-line="41" selection-end-column="37" />
+            <state relative-caret-position="408">
+              <caret line="32" column="39" lean-forward="true" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/WebContent/board/BoardContent.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="117">
+              <caret line="20" column="48" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/board/filedownload.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1124">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/board/BoardWriteProc.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="348">
+              <caret line="52" column="21" lean-forward="true" selection-start-line="52" selection-start-column="21" selection-end-line="52" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/filedownload.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
+            <state relative-caret-position="-936">
               <caret line="6" column="14" lean-forward="true" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/board/BoardWrite.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="81" column="92" selection-start-line="81" selection-start-column="92" selection-end-line="81" selection-end-column="92" />
             </state>
           </provider>
         </entry>
@@ -138,8 +172,11 @@
       <list>
         <option value="$PROJECT_DIR$/WebContent/app-realpath.jsp" />
         <option value="$PROJECT_DIR$/WebContent/FileUpTest.jsp" />
-        <option value="$PROJECT_DIR$/WebContent/FileUpTestProc.jsp" />
         <option value="$PROJECT_DIR$/WebContent/filedownload.jsp" />
+        <option value="$PROJECT_DIR$/WebContent/board/BoardWrite.jsp" />
+        <option value="$PROJECT_DIR$/WebContent/FileUpTestProc.jsp" />
+        <option value="$PROJECT_DIR$/WebContent/board/BoardWriteProc.jsp" />
+        <option value="$PROJECT_DIR$/WebContent/board/BoardContent.jsp" />
       </list>
     </option>
   </component>
@@ -222,6 +259,12 @@
               <item name="jspboard" type="b2602c69:ProjectViewProjectNode" />
               <item name="jspboard" type="462c0819:PsiDirectoryNode" />
               <item name="WebContent" type="462c0819:PsiDirectoryNode" />
+              <item name="board" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jspboard" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jspboard" type="462c0819:PsiDirectoryNode" />
+              <item name="WebContent" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -232,6 +275,11 @@
               <item name="jspboard" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
               <item name="cos.jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jspboard" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Tomcat 9.0.10" type="70bed36:NamedLibraryElementNode" />
             </path>
             <path>
               <item name="jspboard" type="b2602c69:ProjectViewProjectNode" />
@@ -258,9 +306,10 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="server&#9;ACTION&#9;tasks.configure.servers" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536556147065" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536558705016" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/WEB-INF/web.xml" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -271,6 +320,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Project\IdeaProjects\jspboard\WebContent\board" />
       <recent name="D:\Project\IdeaProjects\jspboard\classes\artifacts\jspboard_war_exploded" />
       <recent name="D:\Project\IdeaProjects\jspboard\classes\artifacts\jspboard_Web_exploded" />
     </key>
@@ -373,12 +423,12 @@
       <updated>1535936883938</updated>
       <workItem from="1535936889183" duration="5000" />
       <workItem from="1536196048624" duration="30000" />
-      <workItem from="1536545512416" duration="6625000" />
+      <workItem from="1536545512416" duration="9268000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6660000" />
+    <option name="totallyTimeSpent" value="9303000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -391,7 +441,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Web" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25637585" />
@@ -406,7 +455,7 @@
       <window_info anchor="bottom" id="Java Enterprise" weight="0.32907802" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.42553192" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" weight="0.42553192" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -455,13 +504,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/FileUpTestProc.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="41" column="37" lean-forward="true" selection-start-line="41" selection-start-column="37" selection-end-line="41" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/upload_files/img13.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -474,10 +516,45 @@
     <entry file="file://$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/upload_files/img1.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/filedownload.jsp">
+    <entry file="file://$PROJECT_DIR$/WebContent/board/BoardWrite.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
+          <caret line="81" column="92" selection-start-line="81" selection-start-column="92" selection-end-line="81" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/FileUpTestProc.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="32" column="39" lean-forward="true" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/filedownload.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-936">
           <caret line="6" column="14" lean-forward="true" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/board/BoardWriteProc.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="52" column="21" lean-forward="true" selection-start-line="52" selection-start-column="21" selection-end-line="52" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/board/filedownload.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1124">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/board/BoardContent.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="20" column="48" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="48" />
         </state>
       </provider>
     </entry>
