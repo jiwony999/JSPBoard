@@ -30,7 +30,7 @@
 	try {
 
 Class.forName("com.mysql.jdbc.Driver");
-	 String jdbcUrl = "jdbc:mysql://localhost:3306/jspdb?useSSL=false&serverTimezone=UTC";
+	 String jdbcUrl = "jdbc:mysql://localhost:3306/jspdb?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
   String jdbcId = "jspuser";
 	  String jdbcPw = "jsppass";
 	conn = DriverManager.getConnection(jdbcUrl, jdbcId, jdbcPw);

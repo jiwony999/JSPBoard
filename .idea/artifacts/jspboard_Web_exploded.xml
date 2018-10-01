@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="jspboard:Web exploded">
-    <output-path>$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded</output-path>
+    <output-path>$PROJECT_DIR$/out/artifacts/jspboard_Web_exploded</output-path>
     <root id="root">
       <element id="javaee-facet-resources" facet="jspboard/web/Web" />
       <element id="directory" name="WEB-INF">
@@ -8,9 +8,9 @@
           <element id="module-output" name="jspboard" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="mysql-connector-java-8.0.12" />
-          <element id="file-copy" path="D:/05_Devlope/java_jar/apache-tomcat-9.0.10/lib/cos.jar" />
-          <element id="library" level="module" name="mysql-connector-java-8.0.12.jar" module-name="jspboard" />
+          <element id="file-copy" path="D:/05_Devlope/java_jar/mysql-connector-java-5.1.46/mysql-connector-java-5.1.46.jar" />
+          <element id="file-copy" path="D:/05_Devlope/java_jar/mysql-connector-java-5.1.46/mysql-connector-java-5.1.46-bin.jar" />
+          <element id="file-copy" path="D:/05_Devlope/java_jar/cos-26Dec2008/lib/cos.jar" />
         </element>
       </element>
     </root>

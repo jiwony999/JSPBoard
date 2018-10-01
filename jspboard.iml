@@ -2,9 +2,6 @@
 <module type="JAVA_MODULE" version="4">
   <component name="EclipseModuleManager">
     <libelement value="jar://D:/05_Devlope/java_jar/mysql-connector-java-8.0.12.jar!/" />
-    <conelement value="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v9.0" />
-    <conelement value="org.eclipse.jst.j2ee.internal.web.container" />
-    <conelement value="org.eclipse.jst.j2ee.internal.module.container" />
     <src_description expected_position="0">
       <src_folder value="file://$MODULE_DIR$/src" expected_position="0" />
     </src_description>
@@ -13,10 +10,11 @@
     <facet type="web" name="Web">
       <configuration>
         <descriptors>
-          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/WEB-INF/web.xml" />
+          <deploymentDescriptor name="context.xml" url="file://$MODULE_DIR$/web/META-INF/context.xml" />
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/web/WEB-INF/web.xml" />
         </descriptors>
         <webroots>
-          <root url="file://$MODULE_DIR$/WebContent" relative="/" />
+          <root url="file://$MODULE_DIR$" relative="/" />
         </webroots>
       </configuration>
     </facet>
@@ -30,25 +28,26 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="module-library" exported="">
-      <library name="mysql-connector-java-8.0.12.jar">
+      <library>
         <CLASSES>
-          <root url="jar://D:/05_Devlope/java_jar/mysql-connector-java-8.0.12.jar!/" />
+          <root url="file://D:/05_Devlope/java_jar/mysql-connector-java-5.1.46" />
         </CLASSES>
         <JAVADOC />
-        <SOURCES />
+        <SOURCES>
+          <root url="file://D:/05_Devlope/java_jar/mysql-connector-java-5.1.46/src" />
+        </SOURCES>
+        <jarDirectory url="file://D:/05_Devlope/java_jar/mysql-connector-java-5.1.46" recursive="false" />
       </library>
     </orderEntry>
-    <orderEntry type="library" exported="" name="Tomcat 9.0.10" level="application_server_libraries" />
-    <orderEntry type="library" exported="" name="cos" level="project" />
+    <orderEntry type="library" exported="" scope="PROVIDED" name="Tomcat 9.0.10" level="application_server_libraries" />
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://D:/05_Devlope/java_jar/apache-tomcat-9.0.10/lib/cos.jar!/" />
+          <root url="jar://D:/05_Devlope/java_jar/cos-26Dec2008/lib/cos.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" exported="" name="mysql-connector-java-8.0.12" level="project" />
   </component>
 </module>

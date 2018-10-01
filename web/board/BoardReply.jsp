@@ -28,7 +28,7 @@
 	try {
 
 		Class.forName("com.mysql.jdbc.Driver");
-		String jdbcUrl = "jdbc:mysql://localhost:3306/jspdb?useSSL=false&serverTimezone=UTC";
+		String jdbcUrl = "jdbc:mysql://localhost:3306/jspdb?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
 		String jdbcId = "jspuser";
 		String jdbcPw = "jsppass";
 		conn = DriverManager.getConnection(jdbcUrl, jdbcId, jdbcPw);
@@ -185,9 +185,9 @@
 
 		<TR ALIGN=CENTER>
 			<TD><IMG SRC="../images/btn_save.gif" STYLE="CURSOR: HAND"
-				onClick="javascript:CheckForm(BoardReply)">&nbsp;&nbsp; <IMG
-				SRC="../images/btn_cancel.gif" STYLE="CURSOR: HAND"
-				onClick="javascript:location.replace('BoardContent.jsp?rno=<%=rno%>&column=<%=column%>&key=<%=encoded_key%>')"></TD>
+					 onClick="javascript:CheckForm(BoardReply)">&nbsp;&nbsp; <IMG
+					SRC="../images/btn_cancel.gif" STYLE="CURSOR: HAND"
+					onClick="javascript:location.replace('BoardContent.jsp?rno=<%=rno%>&column=<%=column%>&key=<%=encoded_key%>')"></TD>
 		</TR>
 
 	</TABLE>
