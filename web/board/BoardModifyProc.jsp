@@ -27,12 +27,12 @@
         key = "";
 
     // MultipartRequest 클래스 생성자의 파라미터 지정
-    String realFolder ="";
     String saveFolder ="upload_files";
     String encType = "utf-8";
     int sizeLimit = 10*1024*1024;
-    ServletContext context = getServletContext();
-    realFolder = context.getRealPath(saveFolder);
+    // MultipartRequest 클래스 생성자의 파라미터 설정
+    ServletContext context = request.getServletContext();
+    String realFolder = context.getRealPath(saveFolder);
     MultipartRequest multi = null;
 
     try {

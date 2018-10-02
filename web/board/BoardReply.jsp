@@ -45,7 +45,7 @@
 %>
 <HTML>
 <HEAD>
-<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="TEXT/HTML; CHARSET=euc-kr" />
+<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="TEXT/HTML; CHARSET=utf-8" />
 <LINK REL="stylesheet" type="text/css" href="../include/style.css" />
 <script language="javascript" src="../include/scripts.js"></script>
 
@@ -126,7 +126,7 @@
 	<BR>
 
 	<FORM NAME="BoardReply" METHOD=POST
-		ACTION="BoardReplyProc.jsp?rno=<%=rno%>&column=<%=column%>&key=<%=encoded_key%>">
+		ACTION="BoardReplyProc.jsp?rno=<%=rno%>&column=<%=column%>&key=<%=encoded_key%>" enctype="multipart/form-data">
 
 		<TABLE WIDTH=620 BORDER=1 CELLSPACING=0 CELLPADDING=2 ALIGN=CENTER>
 

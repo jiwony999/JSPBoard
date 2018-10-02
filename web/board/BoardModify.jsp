@@ -128,9 +128,12 @@
                     } else {
                         String IMGURL = "../images/btn_filedown.gif";
                         out.println("<img align=absmiddle src=" + IMGURL + ">");
+
+                %>
+                <a href="filedownload.jsp?filename=<%=filename%>"><%=filename%> (<%=filesize%> Kbyte)</a>
+                <%
                     }
                 %>
-                <a href="filedownload.jsp?filename=<%=filename%>"><%=filename%> (<%=filesize%> Kbyte</a>
             </TD>
         </TR>
         <TR>

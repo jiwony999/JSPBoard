@@ -34,7 +34,7 @@
         conn = DriverManager.getConnection(jdbcUrl, jdbcId, jdbcPw);
 
         // 질의의 생성 및 수행
-        String Query1 = "select UsrName, UsrMail,UsrSubject, UsrContent from board where RcdNo=?";
+        String Query1 = "select UsrName, UsrMail,UsrSubject, UsrContent, UsrFileName, UsrFileSize from board where RcdNo=?";
         pstmt = conn.prepareStatement(Query1);
         pstmt.setInt(1, rno);
         rs = pstmt.executeQuery();
@@ -46,6 +46,9 @@
         String mail = rs.getString(2);
         String subject = rs.getString(3).trim();
         String content = rs.getString(4);
+        String filename = rs.getString(5);
+        int filesize = rs.getInt(6);
+        filesize = filesize/1000;
         content.replaceAll("\r\n","<br>");
 %>
 <HTML>
@@ -115,7 +118,17 @@
 
         <TR>
             <TD WIDTH=120 ALIGN=CENTER><B>파일첨부</B></TD>
-            <TD WIDTH=500>첨부된 파일이 없습니다.</TD>
+            <TD WIDTH=500>
+                <%
+                    if (filename == null) {
+                        out.println("첨부된 파일이 없습니다.");
+                    } else {
+                        String IMGURL = "../images/btn_filedown.gif";
+                        out.println("<img align=absmiddle src=" + IMGURL + ">");
+                        out.println(filename + " ( " + filesize + " Kbyte )");
+                    }
+                %>
+            </TD>
         </TR>
 
         <TR>
