@@ -200,7 +200,7 @@
                         String retUrl = "BoardList.jsp?CurrentPage=" + BeforePageSetLastPage + "&column=" + column + "&key=" + encoded_key;
 
                         String click = "javascript:location.replace('" + retUrl + "')";
-                        out.println("<img src=" + bf_block + " onClick=" + click + " style=cursor:hand>");
+                        out.println("<img src=" + bf_block + " onClick=" + click + " style=cursor:pointer>");
                     } else {
                         out.println("<img src=" + bf_block + ">");
 
@@ -212,7 +212,7 @@
                         String retUrl = "BoardList.jsp?CurrentPage=" + BeforePage + "&column=" + column + "&key=" + encoded_key;
 
                         String click = "javascript:location.replace('" + retUrl + "')";
-                        out.println("<img src=" + bf_page + " onClick=" + click + " style=cursor:hand>");
+                        out.println("<img src=" + bf_page + " onClick=" + click + " style=cursor:pointer>");
                     } else {
                         out.println("<img src=" + bf_page + ">");
 
@@ -241,7 +241,7 @@
                         String retUrl = "BoardList.jsp?CurrentPage=" + NextPage + "&column=" + column + "&key=" + encoded_key;
 
                         String click = "javascript:location.replace('" + retUrl + "')";
-                        out.println("<img src=" + nxt_page + " onClick=" + click + " style=cursor:hand>");
+                        out.println("<img src=" + nxt_page + " onClick=" + click + " style=cursor:pointer>");
                     } else {
                         out.println("<img src=" + nxt_page + ">");
 
@@ -253,7 +253,7 @@
                         String retUrl = "BoardList.jsp?CurrentPage=" + NextPageSet + "&column=" + column + "&key=" + encoded_key;
 
                         String click = "javascript:location.replace('" + retUrl + "')";
-                        out.println("<img src=" + nxt_block + " onClick=" + click + " style=cursor:hand>");
+                        out.println("<img src=" + nxt_block + " onClick=" + click + " style=cursor:pointer>");
                     } else {
                         out.println("<img src=" + nxt_block + ">");
 
