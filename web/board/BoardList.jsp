@@ -67,7 +67,7 @@
         rs1.next();
         TotalRecords = rs1.getInt(1);
 
-        Number = TotalRecords - (CurrentPage-1)*PageRecords;
+        Number = TotalRecords - (CurrentPage - 1) * PageRecords;
 
 %>
 
@@ -184,11 +184,83 @@
                      STYLE=CURSOR:HAND>
             </TD>
             <TD WIDTH=320 ALIGN=CENTER>
-                <IMG SRC="../images/btn_bf_block.gif">&nbsp;
-                <IMG SRC="../images/btn_bf_page.gif">&nbsp;
-                1&nbsp;&nbsp;2&nbsp;&nbsp;3&nbsp;&nbsp;4&nbsp;&nbsp;5&nbsp;&nbsp;6&nbsp;&nbsp;7&nbsp;&nbsp;8&nbsp;&nbsp;9&nbsp;&nbsp;10&nbsp;
-                <IMG SRC="../images/btn_nxt_page.gif">&nbsp;
-                <IMG SRC="../images/btn_nxt_block.gif">
+                <%
+                    TotalPages = (int) Math.ceil((double) TotalRecords / PageRecords);
+                    TotalPageSets = (int) Math.ceil((double) TotalPages / PageSets);
+                    CurrentPageSet = (int) Math.ceil((double) CurrentPage / PageSets);
+
+                    String bf_block = "../images/btn_bf_block.gif";
+                    String bf_page = "../images/btn_bf_page.gif";
+                    String nxt_page = "../images/btn_nxt_page.gif";
+                    String nxt_block = "../images/btn_nxt_block.gif";
+
+                    // 이전 페이지 집합 이동
+                    if (CurrentPageSet > 1) {
+                        int BeforePageSetLastPage = PageSets * (CurrentPageSet - 1);
+                        String retUrl = "BoardList.jsp?CurrentPage=" + BeforePageSetLastPage + "&column=" + column + "&key=" + encoded_key;
+
+                        String click = "javascript:location.replace('" + retUrl + "')";
+                        out.println("<img src=" + bf_block + " onClick=" + click + " style=cursor:hand>");
+                    } else {
+                        out.println("<img src=" + bf_block + ">");
+
+                    }
+
+                    // 이전 페이지 이동
+                    if (CurrentPage > 1) {
+                        int BeforePage = CurrentPage - 1;
+                        String retUrl = "BoardList.jsp?CurrentPage=" + BeforePage + "&column=" + column + "&key=" + encoded_key;
+
+                        String click = "javascript:location.replace('" + retUrl + "')";
+                        out.println("<img src=" + bf_page + " onClick=" + click + " style=cursor:hand>");
+                    } else {
+                        out.println("<img src=" + bf_page + ">");
+
+                    }
+
+                    // 현재 페이지 집합 내의 네비게이션
+                    int FirstPage = PageSets * (CurrentPageSet - 1);
+                    int LastPage = PageSets * CurrentPageSet;
+
+                    if (CurrentPageSet == TotalPageSets) {
+                        LastPage = TotalPages;
+                    }
+
+                    for (int i = FirstPage + 1; i <= LastPage; i++) {
+                        if (CurrentPage == i) {
+                            out.println("<b>" + i + "</b>");
+                        } else {
+                            String retUrl = "BoardList.jsp?CurrentPage=" + i + "&column=" + column + "&key=" + encoded_key;
+                            out.println("<a href=" + retUrl + ">" + i + "</a>");
+                        }
+                    }
+
+                    // 다음 페이지 이동
+                    if (TotalPages > CurrentPage) {
+                        int NextPage = CurrentPage + 1;
+                        String retUrl = "BoardList.jsp?CurrentPage=" + NextPage + "&column=" + column + "&key=" + encoded_key;
+
+                        String click = "javascript:location.replace('" + retUrl + "')";
+                        out.println("<img src=" + nxt_page + " onClick=" + click + " style=cursor:hand>");
+                    } else {
+                        out.println("<img src=" + nxt_page + ">");
+
+                    }
+
+                    // 다음 페이지 집합 이동
+                    if (TotalPageSets > CurrentPageSet) {
+                        int NextPageSet = PageSets * CurrentPageSet + 1;
+                        String retUrl = "BoardList.jsp?CurrentPage=" + NextPageSet + "&column=" + column + "&key=" + encoded_key;
+
+                        String click = "javascript:location.replace('" + retUrl + "')";
+                        out.println("<img src=" + nxt_block + " onClick=" + click + " style=cursor:hand>");
+                    } else {
+                        out.println("<img src=" + nxt_block + ">");
+
+                    }
+
+
+                %>
             </TD>
             <TD WIDTH=200 ALIGN=RIGHT>
                 <SELECT NAME="column" SIZE=1>
