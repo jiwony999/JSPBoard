@@ -26,6 +26,8 @@
     else
         key = "";
 
+    int CurrentPage = Integer.parseInt(request.getParameter("CurrentPage"));
+
     // MultipartRequest 클래스 생성자의 파라미터 지정
     String saveFolder ="upload_files";
     String encType = "utf-8";
@@ -101,7 +103,7 @@
             rs.close();
             pstmt.close();
             conn.close();
-            String url = "BoardContent.jsp?rno=" + rno +"&column=" + colunmn +"&key="+ encoded_key;
+            String url = "BoardContent.jsp?rno=" + rno +"&column=" + colunmn +"&key="+ encoded_key + "&CurrentPage" + CurrentPage;
             response.sendRedirect(url);
         }
         else{

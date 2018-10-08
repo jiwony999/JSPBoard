@@ -78,6 +78,8 @@
     } else {
         key ="";
     }
+
+    int CurrentPage = Integer.parseInt(request.getParameter("CurrentPage"));
 %>
 <FORM NAME="BoardWrite" METHOD=POST ACTION="BoardWriteProc.jsp" enctype="multipart/form-data">
 
@@ -137,7 +139,7 @@
         </TD>
         <TD WIDTH=400 ALIGN=CENTER>
             <IMG SRC="../images/btn_save.gif" onClick="CheckForm(BoardWrite)" STYLE=CURSOR:HAND>&nbsp;&nbsp;
-            <IMG SRC="../images/btn_cancel.gif" onClick="javascript:location.replace('BoardList.jsp?column=<%=column%>&key=<%=encoded_key%>')" STYLE=CURSOR:HAND>
+            <IMG SRC="../images/btn_cancel.gif" onClick="javascript:location.replace('BoardList.jsp?column=<%=column%>&key=<%=encoded_key%>&CurrentPage=<%=CurrentPage%>')" STYLE=CURSOR:HAND>
         </TD>
         <TD WIDTH=110 ALIGN=LEFT>&nbsp;</TD>
     </TR>

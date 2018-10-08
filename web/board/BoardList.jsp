@@ -147,7 +147,7 @@
                 }
 
             %>
-            <A HREF="BoardContent.jsp?rno=<%=rno%>&column=<%=column%>&key=<%=encoded_key%>"><%=subject%>
+            <A HREF="BoardContent.jsp?rno=<%=rno%>&column=<%=column%>&key=<%=encoded_key%>&CurrentPage=<%=CurrentPage%>"><%=subject%>
             </A>
             <%
                 long now = System.currentTimeMillis();
@@ -180,7 +180,7 @@
         <TR>
             <TD ALIGN=LEFT WIDTH=100>
                 <IMG SRC="../images/btn_new.gif"
-                     onClick="javascript:location.replace('BoardWrite.jsp?column=<%=column%>&key=<%=encoded_key%>')" ;
+                     onClick="javascript:location.replace('BoardWrite.jsp?column=<%=column%>&key=<%=encoded_key%>&CurrentPage=<%=CurrentPage%>')" ;
                      STYLE=CURSOR:HAND>
             </TD>
             <TD WIDTH=320 ALIGN=CENTER>

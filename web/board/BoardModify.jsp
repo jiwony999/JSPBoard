@@ -42,6 +42,8 @@
         int filesize = rs1.getInt(6);
         filesize = filesize / 1000;
         //content = content.replaceAll("\r\n","<BR>");
+
+        int CurrentPage = Integer.parseInt(request.getParameter("CurrentPage"));
 %>
 
 
@@ -87,7 +89,7 @@
 //------------------------------- JSP CODE END
 %>
 
-<FORM NAME="BoardModify" METHOD=POST ACTION="BoardModifyProc.jsp?rno=<%=rno%>&column=<%=column%>&key=<%=key%>"
+<FORM NAME="BoardModify" METHOD=POST ACTION="BoardModifyProc.jsp?rno=<%=rno%>&column=<%=column%>&key=<%=key%>&CurrentPage=<%=CurrentPage%>"
       enctype="multipart/form-data">
 
     <TABLE WIDTH=620 BORDER=1 CELLSPACING=0 CELLPADDING=1 ALIGN=CENTER>
@@ -160,7 +162,7 @@
         <TD>
             <IMG SRC="../images/btn_mdfy.gif" STYLE=CURSOR:HAND onclick="javascript:CheckForm(BoardModify)">&nbsp;&nbsp;
             <IMG SRC="../images/btn_cancel.gif" STYLE=CURSOR:HAND
-                 onClick="javascript:location.replace('BoardList.jsp?rno=<%=rno%>&column=<%=column%>&key=<%=encoded_key%>')">
+                 onClick="javascript:location.replace('BoardList.jsp?rno=<%=rno%>&column=<%=column%>&key=<%=encoded_key%>&CurrentPage=<%=CurrentPage%>')">
         </TD>
     </TR>
 

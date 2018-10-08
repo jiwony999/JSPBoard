@@ -43,6 +43,8 @@
     String encType = "utf-8";
     DefaultFileRenamePolicy policy = new DefaultFileRenamePolicy();
 
+    int CurrentPage = Integer.parseInt(request.getParameter("CurrentPage"));
+
     // JDBC 설정
 
     try {
@@ -129,7 +131,7 @@
         rs1.close();
         pstmt.close();
         conn.close();
-        String retUrl = "BoardList.jsp?column=" + column + "&key" + encoded_key;
+        String retUrl = "BoardList.jsp?column=" + column + "&key" + encoded_key + "&CurrentPage=" + CurrentPage;
         response.sendRedirect(retUrl);
     }
 

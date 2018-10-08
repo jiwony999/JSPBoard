@@ -25,6 +25,8 @@
     else
         key = "";
 
+    int CurrentPage = Integer.parseInt(request.getParameter("CurrentPage"));
+
 
     try {
         // jdbc설정
@@ -68,7 +70,7 @@
             pstmt.close();
             conn.close();
 
-            String url = "BoardList.jsp?rno=" + rno +"&column=" + colunmn +"&key="+ encoded_key;
+            String url = "BoardList.jsp?rno=" + rno +"&column=" + colunmn +"&key="+ encoded_key + "&CurrentPage=" + CurrentPage;
             response.sendRedirect(url);
         } else {
             rs.close();

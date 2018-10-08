@@ -23,6 +23,8 @@
     ServletContext context = request.getServletContext();
     String realFolder = context.getRealPath(saveFolder);
 
+    int CurrentPage = Integer.parseInt(request.getParameter("CurrentPage"));
+
     int sizeLimit = 10*1024*1024;
     String encType = "utf-8";
     DefaultFileRenamePolicy policy = new DefaultFileRenamePolicy();
