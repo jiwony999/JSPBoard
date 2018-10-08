@@ -7,86 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9922164b-e826-4837-979a-5776627eac40" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/jspboard_Web_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/jspboard_war_exploded.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.settings/.jsdtscope" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.wst.common.component" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.wst.common.project.facet.core.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.wst.jsdt.ui.superType.container" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.wst.jsdt.ui.superType.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/FileUpTest.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/FileUpTestProc.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/WEB-INF/lib/cos.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/WEB-INF/lib/mysql-connector-java-8.0.12.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/app-realpath.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/board/BoardContent.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/board/BoardDelete.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/board/BoardDeleteProc.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/board/BoardList.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/board/BoardModify.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/board/BoardModifyProc.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/board/BoardReply.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/board/BoardReplyProc.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/board/BoardWrite.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/board/BoardWriteProc.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/board/filedownload.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/board/script/scripts.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/filedownload.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/images/btn_be_member.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/images/btn_be_member_3.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/images/btn_bf_block.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/images/btn_bf_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/images/btn_cancel.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/images/btn_del.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/images/btn_dup_id_3.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/images/btn_filedown.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/images/btn_id_confirm.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/images/btn_idpw_srch.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/images/btn_idpw_srch_cancel.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/images/btn_idpw_srch_ok.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/images/btn_list.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/images/btn_login.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/images/btn_logout.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/images/btn_mb_cancel_3.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/images/btn_mb_mdfy.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/images/btn_mdfy.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/images/btn_new.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/images/btn_nxt_block.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/images/btn_nxt_page.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/images/btn_post_3.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/images/btn_reply.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/images/btn_save.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/images/btn_search.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/images/new.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/images/re.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/include/scripts.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/include/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/member/AddressSearch_1.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/member/AddressSearch_2.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/member/BeMember.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/member/IdCheck.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/member/IdPwSearch.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/member/IdSearch.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/member/IdSearchProc.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/member/LoginForm.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/member/LoginState.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/member/MemberModify.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/member/PwSearch.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/member/PwSearchProc.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/upload_files/img1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/artifacts/jspboard_Web_exploded/upload_files/캡처.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jspboard.iml" beforeDir="false" afterPath="$PROJECT_DIR$/jspboard.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/board/BoardDelete.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/board/BoardDelete.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/board/BoardDeleteProc.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/board/BoardDeleteProc.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/board/BoardModify.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/board/BoardModify.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/board/BoardModifyProc.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/board/BoardModifyProc.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/board/BoardReply.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/board/BoardReply.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/board/BoardReplyProc.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/board/BoardReplyProc.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/board/BoardWriteProc.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/board/BoardWriteProc.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/board/BoardList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/board/BoardList.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -105,18 +27,19 @@
     <session id="-814759430">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.25" value="1" />
           <entry key="project.open.time.32" value="1" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="classpath" value="1" />
           <entry key="iml" value="1" />
-          <entry key="jsp" value="20" />
+          <entry key="jsp" value="21" />
           <entry key="prefs" value="1" />
           <entry key="project" value="1" />
           <entry key="xml" value="8" />
@@ -126,7 +49,7 @@
         <counts>
           <entry key="Eclipse" value="2" />
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JSP" value="20" />
+          <entry key="JSP" value="21" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="XML" value="8" />
         </counts>
@@ -134,13 +57,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="classpath" value="1" />
-          <entry key="jsp" value="1496" />
+          <entry key="jsp" value="1887" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Eclipse" value="1" />
-          <entry key="JSP" value="1496" />
+          <entry key="JSP" value="1887" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -151,11 +74,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/board/BoardDeleteProc.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="641">
-              <caret line="62" column="50" selection-start-line="62" selection-start-column="50" selection-end-line="62" selection-end-column="50" />
+            <state relative-caret-position="556">
+              <caret line="79" column="31" lean-forward="true" selection-start-line="79" selection-start-column="31" selection-end-line="79" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/board/BoardList.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="576">
+              <caret line="79" lean-forward="true" selection-start-line="79" selection-end-line="79" />
             </state>
           </provider>
         </entry>
@@ -187,7 +119,6 @@
       <list>
         <option value="$PROJECT_DIR$/jspboard.iml" />
         <option value="$PROJECT_DIR$/.classpath" />
-        <option value="$PROJECT_DIR$/web/board/BoardList.jsp" />
         <option value="$PROJECT_DIR$/web/board/BoardContent.jsp" />
         <option value="$PROJECT_DIR$/web/board/BoardReply.jsp" />
         <option value="$PROJECT_DIR$/web/board/BoardReplyProc.jsp" />
@@ -196,6 +127,7 @@
         <option value="$PROJECT_DIR$/web/board/BoardModify.jsp" />
         <option value="$PROJECT_DIR$/web/board/BoardDelete.jsp" />
         <option value="$PROJECT_DIR$/web/board/BoardDeleteProc.jsp" />
+        <option value="$PROJECT_DIR$/web/board/BoardList.jsp" />
       </list>
     </option>
   </component>
@@ -226,8 +158,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -276,12 +206,14 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538482443486" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538482498955" />
     <property name="last_opened_file_path" value="D:/05_Devlope/java_jar/cos-26Dec2008/lib/cos.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -394,18 +326,19 @@
       <updated>1538365387537</updated>
       <workItem from="1538365393572" duration="1706000" />
       <workItem from="1538478738046" duration="32000" />
-      <workItem from="1538479039084" duration="3283000" />
+      <workItem from="1538479039084" duration="3345000" />
+      <workItem from="1538961522261" duration="3197000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5021000" />
+    <option name="totallyTimeSpent" value="8280000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25578406" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.25973153" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -415,13 +348,13 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.4555256" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.45531914" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39892185" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Application Servers" order="7" weight="0.32907802" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="10" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
@@ -449,13 +382,6 @@
     <entry file="file://$PROJECT_DIR$/.project" />
     <entry file="file://$PROJECT_DIR$/.classpath" />
     <entry file="file://$PROJECT_DIR$/WEB-INF/web.xml" />
-    <entry file="file://$PROJECT_DIR$/web/board/BoardList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="57" column="69" selection-start-line="57" selection-start-column="69" selection-end-line="57" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/jspboard.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="327">
@@ -470,12 +396,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.settings/org.eclipse.core.resources.prefs">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/artifacts/unnamed.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/.settings/org.eclipse.core.resources.prefs" />
+    <entry file="file://$PROJECT_DIR$/.idea/artifacts/unnamed.xml" />
     <entry file="file://$PROJECT_DIR$/web/board/BoardReply.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1920">
@@ -537,6 +459,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/board/BoardDeleteProc.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="556">
+          <caret line="79" column="31" lean-forward="true" selection-start-line="79" selection-start-column="31" selection-end-line="79" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/board/BoardModifyProc.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -544,10 +473,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/board/BoardDeleteProc.jsp">
+    <entry file="file://$PROJECT_DIR$/web/board/BoardList.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="641">
-          <caret line="62" column="50" selection-start-line="62" selection-start-column="50" selection-end-line="62" selection-end-column="50" />
+        <state relative-caret-position="576">
+          <caret line="79" lean-forward="true" selection-start-line="79" selection-end-line="79" />
         </state>
       </provider>
     </entry>

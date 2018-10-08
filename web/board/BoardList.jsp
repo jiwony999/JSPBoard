@@ -1,7 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<%@ page import ="java.text.SimpleDateFormat" %>
-<%@ page import="java.net.URLEncoder"%>
-<%@ page import ="java.sql.*"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.net.URLEncoder" %>
+<%@ page import="java.sql.*" %>
 
 <%request.setCharacterEncoding("utf-8");%>
 
@@ -12,35 +12,51 @@
     ResultSet rs2 = null;
 
     int TotalRecords = 0;
+    int CurrentPage = 0;
+    int Number = 0;
+    int TotalPages = 0;
+    int TotalPageSets = 0;
+    int CurrentPageSet = 0;
+
+    int PageRecords = 10;
+    int PageSets = 10;
+
+    if (request.getParameter("CurrentPage") == null) {
+        CurrentPage = 1;
+    } else {
+        CurrentPage = Integer.parseInt(request.getParameter("CurrentPage"));
+    }
 
     String Query1 = "";
     String Query2 = "";
-    String encoded_key="";
+    String encoded_key = "";
+
+    int FirstRecord = PageRecords * (CurrentPage - 1);
 
     String column = request.getParameter("column");
-    if(column == null) column = "";
+    if (column == null) column = "";
 
     String key = request.getParameter("key");
-    if(key!=null){
-        encoded_key = URLEncoder.encode(key,"utf-8");
-    } else{
-        key="";
+    if (key != null) {
+        encoded_key = URLEncoder.encode(key, "utf-8");
+    } else {
+        key = "";
     }
 
-    try{
+    try {
         String jdbcUrl = "jdbc:mysql://localhost:3306/jspdb";
         String jdbcId = "jspuser";
         String jdbcPw = "jsppass";
 
         Class.forName("com.mysql.jdbc.Driver");
-        conn = DriverManager.getConnection(jdbcUrl,jdbcId,jdbcPw);
+        conn = DriverManager.getConnection(jdbcUrl, jdbcId, jdbcPw);
 
         if (column.equals("") || key.equals("")) { //column 과 key가 공백이라면 그대로 목록 출력
             Query1 = "SELECT count(RcdNo) FROM board";
-            Query2 = "SELECT RcdNo, UsrSubject, UsrName, UsrDate, UsrRefer,RcdLevel FROM board ORDER BY grpno DESC, rcdorder asc";
-        }else{ //공백이 아니라면 검색한 거 그대로 출력!
-            Query1 = "SELECT count(RcdNo) FROM board WHERE "+column+" LIKE '%"+key+"%'";
-            Query2 = "SELECT RcdNo, UsrSubject, UsrName, UsrDate, UsrRefer,RcdLevel FROM board WHERE "+column+" LIKE '%"+key+"%' ORDER BY grpno DESC rcdorder asc";
+            Query2 = "SELECT RcdNo, UsrSubject, UsrName, UsrDate, UsrRefer,RcdLevel FROM board ORDER BY grpno DESC, rcdorder asc LIMIT " + FirstRecord + " , " + PageRecords;
+        } else { //공백이 아니라면 검색한 거 그대로 출력!
+            Query1 = "SELECT count(RcdNo) FROM board WHERE " + column + " LIKE '%" + key + "%'";
+            Query2 = "SELECT RcdNo, UsrSubject, UsrName, UsrDate, UsrRefer,RcdLevel FROM board WHERE " + column + " LIKE '%" + key + "%' ORDER BY grpno DESC rcdorder asc LIMIT " + FirstRecord + " , " + PageRecords;
         }
 
         pstmt = conn.prepareStatement(Query1);
@@ -50,6 +66,8 @@
 
         rs1.next();
         TotalRecords = rs1.getInt(1);
+
+        Number = TotalRecords - (CurrentPage-1)*PageRecords;
 
 %>
 
@@ -70,8 +88,8 @@
 
 <%
     //------------------------------- JSP CODE START ( 세션 변수에 따른 문서 선택 )
-    String member_id = (String)session.getAttribute("member_id");
-    if(member_id == null) {
+    String member_id = (String) session.getAttribute("member_id");
+    if (member_id == null) {
 %>
 <jsp:include page="../member/LoginForm.jsp"/>
 <%
@@ -93,7 +111,7 @@
         <TD WIDTH=45><B>참조</B></TD>
     </TR>
     <%
-        while(rs2.next()){
+        while (rs2.next()) {
             int rno = rs2.getInt("RcdNo");
             String subject = rs2.getString("UsrSubject");
             String name = rs2.getString("UsrName");
@@ -109,43 +127,48 @@
 
     %>
     <TR>
-        <TD WIDTH=45 ALIGN=CENTER><%=TotalRecords%></TD>
+        <TD WIDTH=45 ALIGN=CENTER><%=Number%>
+        </TD>
         <TD WIDTH=395 ALIGN=LEFT>
             <%
-                for(int i=0; i<level; i++) out.println("&nbsp;&nbsp");
-                if(level>0){
-                    String IMGURL ="../images/re.gif";
-                    out.println("<IMG ALIGN=ABSMIDDLE SRC="+IMGURL+">");
+                for (int i = 0; i < level; i++) out.println("&nbsp;&nbsp");
+                if (level > 0) {
+                    String IMGURL = "../images/re.gif";
+                    out.println("<IMG ALIGN=ABSMIDDLE SRC=" + IMGURL + ">");
                 }
 
                 //제목 문자열의 편집
 
                 int max_length = 34;
-                int cut_length = max_length-(level);
-                if(subject.length()>cut_length){
-                    subject=subject.substring(0,cut_length);
-                    subject=subject+"..";
+                int cut_length = max_length - (level);
+                if (subject.length() > cut_length) {
+                    subject = subject.substring(0, cut_length);
+                    subject = subject + "..";
                 }
 
             %>
-            <A HREF="BoardContent.jsp?rno=<%=rno%>&column=<%=column%>&key=<%=encoded_key%>"><%=subject%></A>
+            <A HREF="BoardContent.jsp?rno=<%=rno%>&column=<%=column%>&key=<%=encoded_key%>"><%=subject%>
+            </A>
             <%
                 long now = System.currentTimeMillis();
-                long dist = (now-date)/1000;
-                long during = 60*60*24;
+                long dist = (now - date) / 1000;
+                long during = 60 * 60 * 24;
 
-                if(dist<during){
-                    String IMGURL="../images/new.gif";
-                    out.println("<IMG ALIGN=ABSMIDDLE width=15 height=12 src="+IMGURL+">");
+                if (dist < during) {
+                    String IMGURL = "../images/new.gif";
+                    out.println("<IMG ALIGN=ABSMIDDLE width=15 height=12 src=" + IMGURL + ">");
                 }
             %></TD>
-        <TD WIDTH=65 ALIGN=CENTER><%=name%></TD>
-        <TD ALIGN=CENTER><%=today%></TD>
-        <TD ALIGN=CENTER><%=refer%></TD>
+        <TD WIDTH=65 ALIGN=CENTER><%=name%>
+        </TD>
+        <TD ALIGN=CENTER><%=today%>
+        </TD>
+        <TD ALIGN=CENTER><%=refer%>
+        </TD>
     </TR>
 
     <%
-            TotalRecords --;
+            Number--;
         }
     %>
 </TABLE>
@@ -156,7 +179,9 @@
 
         <TR>
             <TD ALIGN=LEFT WIDTH=100>
-                <IMG SRC="../images/btn_new.gif" onClick="javascript:location.replace('BoardWrite.jsp?column=<%=column%>&key=<%=encoded_key%>')"; STYLE=CURSOR:HAND>
+                <IMG SRC="../images/btn_new.gif"
+                     onClick="javascript:location.replace('BoardWrite.jsp?column=<%=column%>&key=<%=encoded_key%>')" ;
+                     STYLE=CURSOR:HAND>
             </TD>
             <TD WIDTH=320 ALIGN=CENTER>
                 <IMG SRC="../images/btn_bf_block.gif">&nbsp;
@@ -181,10 +206,9 @@
 
 </FORM>
 <%
-    }
-    catch (SQLException e){
+    } catch (SQLException e) {
         e.printStackTrace();
-    }finally {
+    } finally {
         rs2.close();
         rs1.close();
         pstmt.close();
