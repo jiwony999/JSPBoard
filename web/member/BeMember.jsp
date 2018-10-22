@@ -1,109 +1,109 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR" %>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 
 <HTML>
 <HEAD>
-    <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="TEXT/HTML; CHARSET=euc-kr"/>
+    <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="TEXT/HTML; CHARSET=utf-8"/>
     <LINK REL="stylesheet" type="text/css" href="../include/style.css">
     <SCRIPT language="javascript" SRC="../include/scripts.js"></SCRIPT>
-    <TITLE>È¸¿ø°¡ÀÔ</TITLE>
+    <TITLE>íšŒì›ê°€ì…</TITLE>
     <script language="JavaScript">
         function CheckMemberForm(form) {
             if (!form.UserName.value) {
-                alert('ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä.');
+                alert('ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”.');
                 form.UserName.focus();
                 return true;
             }
 
             if (!form.UserJumin1.value) {
-                alert('ÁÖ¹Îµî·Ï¹øÈ£ ¾Õ 6ÀÚ¸®¸¦ ÀÔ·ÂÇÏ¼¼¿ä.');
+                alert('ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸ ì• 6ìë¦¬ë¥¼ ì…ë ¥í•˜ì„¸ìš”.');
                 form.UserJumin1.focus();
                 return true;
             }
 
             if (!form.UserJumin2.value) {
-                alert('ÁÖ¹Îµî·Ï¹øÈ£ µÚ 7ÀÚ¸®¸¦ ÀÔ·ÂÇÏ¼¼¿ä.');
+                alert('ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸ ë’¤ 7ìë¦¬ë¥¼ ì…ë ¥í•˜ì„¸ìš”.');
                 form.UserJumin2.focus();
                 return true;
             }
 
             if (!JuminNoCheck(form.UserJumin1, form.UserJumin2)) {
-                alert('ÁÖ¹Îµî·Ï¹øÈ£°¡ ÀûÀıÄ¡ ¾Ê½À´Ï´Ù.');
+                alert('ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸ê°€ ì ì ˆì¹˜ ì•ŠìŠµë‹ˆë‹¤.');
                 form.UserJumin1.focus();
                 return true;
             }
 
             if (!form.UserId.value) {
-                alert('»ç¿ëÀÚ ¾ÆÀÌµğ¸¦ ÀÔ·ÂÇÏ¼¼¿ä.');
+                alert('ì‚¬ìš©ì ì•„ì´ë””ë¥¼ ì…ë ¥í•˜ì„¸ìš”.');
                 form.UserId.focus();
                 return true;
             }
 
             if (!form.UserPass.value) {
-                alert('ÆĞ½º¿öµå¸¦ ÀÔ·ÂÇÏ¼¼¿ä.');
+                alert('íŒ¨ìŠ¤ì›Œë“œë¥¼ ì…ë ¥í•˜ì„¸ìš”.');
                 form.UserPass.focus();
                 return true;
             }
 
             if (!form.ReUserPass.value) {
-                alert('ÆĞ½º¿öµå ÀçÀÔ·Â ¶õ¿¡ ÆĞ½º¿öµå¸¦ ÀÔ·ÂÇÏ¼¼¿ä.');
+                alert('íŒ¨ìŠ¤ì›Œë“œ ì¬ì…ë ¥ ë€ì— íŒ¨ìŠ¤ì›Œë“œë¥¼ ì…ë ¥í•˜ì„¸ìš”.');
                 form.ReUserPass.focus();
                 return true;
             }
 
             if (!(form.UserPass.value == form.ReUserPass.value)) {
-                alert('ÀÔ·ÂµÈ ÆĞ½º¿öµå°¡ ¼­·Î ´Ù¸¨´Ï´Ù.');
+                alert('ì…ë ¥ëœ íŒ¨ìŠ¤ì›Œë“œê°€ ì„œë¡œ ë‹¤ë¦…ë‹ˆë‹¤.');
                 form.UserPass.focus();
                 return true;
             }
 
             if (!form.UserName.value) {
-                alert('ÀüÀÚ¿ìÆíÁÖ¼Ò¸¦ ÀÔ·ÂÇÏ¼¼¿ä.');
+                alert('ì „ììš°í¸ì£¼ì†Œë¥¼ ì…ë ¥í•˜ì„¸ìš”.');
                 form.UserMail.focus();
                 return true;
             } else if (!isCorrectEmail('BeMember', 'UserMail')) {
-                alert('ÀüÀÚ¿ìÆíÇü½ÄÀÌ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù.');
+                alert('ì „ììš°í¸í˜•ì‹ì´ ì˜¬ë°”ë¥´ì§€ ì•ŠìŠµë‹ˆë‹¤.');
                 form.UserMail.focus();
                 return true;
             }
 
             if (!form.ZipCode1.value) {
-                alert('¿ìÆí¹øÈ£³ª ÁÖ¼Ò°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù.');
+                alert('ìš°í¸ë²ˆí˜¸ë‚˜ ì£¼ì†Œê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.');
                 form.ZipCode1.focus();
                 return true;
             }
 
             if (!form.UserTel1.value) {
-                alert('ÀüÈ­¹øÈ£(Áö¿ª¹øÈ£)¸¦ ÀÔ·ÂÇÏ¼¼¿ä.');
+                alert('ì „í™”ë²ˆí˜¸(ì§€ì—­ë²ˆí˜¸)ë¥¼ ì…ë ¥í•˜ì„¸ìš”.');
                 form.UserTel1.focus();
                 return true;
             }
 
             if (!form.UserTel2.value) {
-                alert('ÀüÈ­¹øÈ£(±¹)¸¦ ÀÔ·ÂÇÏ¼¼¿ä.');
+                alert('ì „í™”ë²ˆí˜¸(êµ­)ë¥¼ ì…ë ¥í•˜ì„¸ìš”.');
                 form.UserTel1.focus();
                 return true;
             }
 
             if (!form.UserTel3.value) {
-                alert('ÀüÈ­¹øÈ£(¹øÈ£)¸¦ ÀÔ·ÂÇÏ¼¼¿ä.');
+                alert('ì „í™”ë²ˆí˜¸(ë²ˆí˜¸)ë¥¼ ì…ë ¥í•˜ì„¸ìš”.');
                 form.UserTel3.focus();
                 return true;
             }
 
 
             if (!form.UserHp1.selectedIndex == 0) {
-                alert('ÈŞ´ëÆùÀÇ Åë½Å»ç¸¦ ¼±ÅÃÇÏ¼¼¿ä.');
+                alert('íœ´ëŒ€í°ì˜ í†µì‹ ì‚¬ë¥¼ ì„ íƒí•˜ì„¸ìš”.');
                 return true;
             }
 
             if (!form.UserHp2.value) {
-                alert('ÈŞ´ëÆù ¹øÈ£ ¾ÕÀÚ¸®¸¦ ÀÔ·ÂÇÏ¼¼¿ä.');
+                alert('íœ´ëŒ€í° ë²ˆí˜¸ ì•ìë¦¬ë¥¼ ì…ë ¥í•˜ì„¸ìš”.');
                 form.UserHp2.focus();
                 return true;
             }
 
             if (!form.UserHp3.value) {
-                alert('ÈŞ´ëÆù ¹øÈ£ µŞÀÚ¸®¸¦ ÀÔ·ÂÇÏ¼¼¿ä.');
+                alert('íœ´ëŒ€í° ë²ˆí˜¸ ë’·ìë¦¬ë¥¼ ì…ë ¥í•˜ì„¸ìš”.');
                 form.UserHp2.focus();
                 return true;
             }
@@ -119,7 +119,7 @@
 
 <TABLE WIDTH=620 HEIGHT=40 BORDER=0 CELLSPACING=1 CELLPADDING=1 ALIGN=CENTER>
     <TR BGCOLOR=#A0A0A0>
-        <TD ALIGN=CENTER><FONT SIZE=4><B>È¸ ¿ø °¡ ÀÔ</B></FONT></TD>
+        <TD ALIGN=CENTER><FONT SIZE=4><B>íšŒ ì› ê°€ ì…</B></FONT></TD>
     </TR>
 </TABLE>
 
@@ -128,7 +128,7 @@
     <TABLE WIDTH=620 BORDER=1 CELLSPACING=0 CELLPADDING=2 ALIGN=CENTER>
 
         <TR>
-            <TD WIDTH=120 ALIGN=CENTER><B>ÀÌ¸§</B></TD>
+            <TD WIDTH=120 ALIGN=CENTER><B>ì´ë¦„</B></TD>
             <TD WIDTH=500>
                 <INPUT TYPE=TEXT NAME="UserName" SIZE=20 MAXLENGTH=20 style="ime-mode:active"
                        onkeydown="javascript:Korean">
@@ -136,7 +136,7 @@
         </TR>
 
         <TR>
-            <TD WIDTH=120 ALIGN=CENTER><B>ÁÖ¹Îµî·Ï¹øÈ£</B></TD>
+            <TD WIDTH=120 ALIGN=CENTER><B>ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸</B></TD>
             <TD WIDTH=500>
                 <INPUT TYPE=TEXT NAME="UserJumin1" SIZE=6 MAXLENGTH=6> -
                 <INPUT TYPE=TEXT NAME="UserJumin2" SIZE=7 MAXLENGTH=7>
@@ -144,7 +144,7 @@
         </TR>
 
         <TR>
-            <TD WIDTH=120 ALIGN=CENTER><B>¾ÆÀÌµğ</B></TD>
+            <TD WIDTH=120 ALIGN=CENTER><B>ì•„ì´ë””</B></TD>
             <TD WIDTH=500>
                 <INPUT TYPE=TEXT NAME="UserId" SIZE=20 MAXLENGTH=10 style="ime-mode:inactive">
                 <IMG SRC="../images/btn_dup_id_3.gif" BORDER=0 ALIGN=ABSMIDDLE STYLE=CURSOR:HAND>
@@ -152,40 +152,40 @@
         </TR>
 
         <TR>
-            <TD WIDTH=120 ALIGN=CENTER><B>ÆĞ½º¿öµå</B></TD>
+            <TD WIDTH=120 ALIGN=CENTER><B>íŒ¨ìŠ¤ì›Œë“œ</B></TD>
             <TD WIDTH=500>
                 <INPUT TYPE=PASSWORD NAME="UserPass" SIZE=20 MAXLENGTH=10>
             </TD>
         </TR>
 
         <TR>
-            <TD WIDTH=120 ALIGN=CENTER><B>ÆĞ½º¿öµå ÀçÀÔ·Â</B></TD>
+            <TD WIDTH=120 ALIGN=CENTER><B>íŒ¨ìŠ¤ì›Œë“œ ì¬ì…ë ¥</B></TD>
             <TD WIDTH=500>
                 <INPUT TYPE=PASSWORD NAME="ReUserPass" SIZE=20 MAXLENGTH=10>
             </TD>
         </TR>
 
         <TR>
-            <TD WIDTH=120 ALIGN=CENTER><B>ÀüÀÚ¿ìÆí</B></TD>
+            <TD WIDTH=120 ALIGN=CENTER><B>ì „ììš°í¸</B></TD>
             <TD WIDTH=500>
                 <INPUT TYPE=TEXT NAME="UserMail" SIZE=60 MAXLENGTH=90 style="ime-mode:inactive">
             </TD>
         </TR>
 
         <TR>
-            <TD WIDTH=120 ALIGN=CENTER><B>ÁÖ ¼Ò</B></TD>
+            <TD WIDTH=120 ALIGN=CENTER><B>ì£¼ ì†Œ</B></TD>
             <TD WIDTH=500>
                 <INPUT TYPE=TEXT NAME="ZipCode1" SIZE=3 MAXLENGTH=3> -
                 <INPUT TYPE=TEXT NAME="ZipCode2" SIZE=3 MAXLENGTH=3><BR>
                 <INPUT TYPE=TEXT NAME="UserAddress1" SIZE=45 MAXLENGTH=110">
                 <IMG SRC="../images/btn_post_3.gif" BORDER=0 ALIGN=ABSMIDDLE STYLE=CURSOR:HAND><BR>&nbsp;
-                ³ª¸ÓÁö ÁÖ¼Ò
+                ë‚˜ë¨¸ì§€ ì£¼ì†Œ
                 <INPUT TYPE=TEXT NAME="UserAddress2" SIZE=45 MAXLENGTH=110>
             </TD>
         </TR>
 
         <TR>
-            <TD WIDTH=120 ALIGN=CENTER><B>ÀüÈ­¹øÈ£</B></TD>
+            <TD WIDTH=120 ALIGN=CENTER><B>ì „í™”ë²ˆí˜¸</B></TD>
             <TD WIDTH=500>
                 <INPUT TYPE=TEXT NAME="UserTel1" SIZE=3 MAXLENGTH=3> -
                 <INPUT TYPE=TEXT NAME="UserTel2" SIZE=4 MAXLENGTH=4> -
@@ -194,10 +194,10 @@
         </TR>
 
         <TR>
-            <TD WIDTH=120 ALIGN=CENTER><B>ÈŞ´ëÀüÈ­</B></TD>
+            <TD WIDTH=120 ALIGN=CENTER><B>íœ´ëŒ€ì „í™”</B></TD>
             <TD WIDTH=500>
                 <SELECT NAME="UserHp1" SIZE=1>
-                    <OPTION VALUE="0" SELECTED>Åë½Å»ç
+                    <OPTION VALUE="0" SELECTED>í†µì‹ ì‚¬
                     <OPTION VALUE="010">010
                     <OPTION VALUE="011">011
                 </SELECT> -

@@ -8,7 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9922164b-e826-4837-979a-5776627eac40" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/include/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/include/scripts.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/member/BeMember.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/member/BeMember.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
@@ -86,7 +85,7 @@
           <entry key="js" value="515" />
           <entry key="jsp" value="4277" />
           <entry key="sql" value="653" />
-          <entry key="txt" value="82" />
+          <entry key="txt" value="99" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -94,7 +93,7 @@
           <entry key="Eclipse" value="1" />
           <entry key="JSP" value="4277" />
           <entry key="JavaScript" value="515" />
-          <entry key="PLAIN_TEXT" value="82" />
+          <entry key="PLAIN_TEXT" value="99" />
           <entry key="SQL" value="380" />
           <entry key="Scratch" value="273" />
         </counts>
@@ -119,8 +118,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/member/BeMember.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="215" column="12" lean-forward="true" selection-start-line="215" selection-start-column="12" selection-end-line="215" selection-end-column="12" />
+            <state relative-caret-position="216">
+              <caret line="9" column="40" lean-forward="true" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
               <folding>
                 <element signature="n#style#0;n#INPUT#0;n#TD#1;n#TR#0;n#TABLE#0;n#FORM#0;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
                 <element signature="n#STYLE#0;n#IMG#0;n#TD#0;n#TR#0;n#TABLE#1;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
@@ -150,8 +149,8 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>euc-kr</find>
       <find>boardCon</find>
+      <find>euc-kr</find>
     </findStrings>
     <replaceStrings>
       <replace>utf-8</replace>
@@ -245,7 +244,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540173039409" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540173717067" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -362,7 +361,7 @@
       <workItem from="1538479039084" duration="3345000" />
       <workItem from="1538961522261" duration="8606000" />
       <workItem from="1539087623358" duration="337000" />
-      <workItem from="1540170552542" duration="2755000" />
+      <workItem from="1540170552542" duration="3160000" />
     </task>
     <task id="LOCAL-00001" summary="update to page navigation">
       <created>1538964829645</created>
@@ -385,11 +384,18 @@
       <option name="project" value="LOCAL" />
       <updated>1538977528725</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="update 회원가입 check">
+      <created>1540173327110</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1540173327110</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16781000" />
+    <option name="totallyTimeSpent" value="17186000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -449,7 +455,8 @@
     <MESSAGE value="update to page navigation" />
     <MESSAGE value="update to boardlist page navigation" />
     <MESSAGE value="update CurrentPage 변수 넘김" />
-    <option name="LAST_COMMIT_MESSAGE" value="update CurrentPage 변수 넘김" />
+    <MESSAGE value="update 회원가입 check" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 회원가입 check" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.project" />
@@ -584,8 +591,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/member/BeMember.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="215" column="12" lean-forward="true" selection-start-line="215" selection-start-column="12" selection-end-line="215" selection-end-column="12" />
+        <state relative-caret-position="216">
+          <caret line="9" column="40" lean-forward="true" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
           <folding>
             <element signature="n#style#0;n#INPUT#0;n#TD#1;n#TR#0;n#TABLE#0;n#FORM#0;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
             <element signature="n#STYLE#0;n#IMG#0;n#TD#0;n#TR#0;n#TABLE#1;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
