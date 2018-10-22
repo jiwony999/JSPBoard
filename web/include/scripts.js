@@ -88,10 +88,11 @@ function Korean() {
 
 // 주민등록번호 형식 조사 함수
 function JuminNoCheck(front, back) {
+
     var birthday = front.value;
     var num = back.value;
 
-    if (birthday != 6) {
+    if (birthday.length != 6) {
         return false;
     }
     if (num.length != 7) {
@@ -105,13 +106,14 @@ function JuminNoCheck(front, back) {
         hap += temp;
     }
 
-    var n1 = nun.charAt(0);
-    var n2 = nun.charAt(1);
-    var n3 = nun.charAt(2);
-    var n4 = nun.charAt(3);
-    var n5 = nun.charAt(4);
-    var n6 = nun.charAt(5);
-    var n7 = nun.charAt(6);
+    var n1 = num.charAt(0);
+    var n2 = num.charAt(1);
+    var n3 = num.charAt(2);
+    var n4 = num.charAt(3);
+    var n5 = num.charAt(4);
+    var n6 = num.charAt(5);
+    var n7 = num.charAt(6);
+
 
     hap += n1 * 8 + n2 * 9 + n3 * 2 + n4 * 3 + n5 * 4 + n6 * 5;
     hap = hap % 11;
