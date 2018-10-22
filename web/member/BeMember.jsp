@@ -1,5 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<%@ page import="java.net.URLEncoder" %>
+<%
+    int m_cp = Integer.parseInt(request.getParameter("CurrentPage"));
+    String m_column = request.getParameter("column");
+    if (m_column == null) m_column = "";
 
+    String m_encoded_key = null;
+
+    String m_key = request.getParameter("key");
+    if (m_key != null) {
+        m_encoded_key = URLEncoder.encode(m_key, "utf-8");
+
+    } else {
+        m_key = "";
+    }
+%>
 <HTML>
 <HEAD>
     <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="TEXT/HTML; CHARSET=utf-8"/>
@@ -26,11 +41,14 @@
                 return true;
             }
 
+            /*
             if (!JuminNoCheck(form.UserJumin1, form.UserJumin2)) {
                 alert('주민등록번호가 적절치 않습니다.');
                 form.UserJumin1.focus();
                 return true;
             }
+
+            */
 
             if (!form.UserId.value) {
                 alert('사용자 아이디를 입력하세요.');
@@ -91,7 +109,7 @@
             }
 
 
-            if (!form.UserHp1.selectedIndex == 0) {
+            if (form.UserHp1.selectedIndex == 0) {
                 alert('휴대폰의 통신사를 선택하세요.');
                 return true;
             }
@@ -123,7 +141,7 @@
     </TR>
 </TABLE>
 
-<FORM NAME="BeMember" METHOD=POST ACTION="BeMemberProc.jsp">
+<FORM NAME="BeMember" METHOD=POST ACTION="BeMemberProc.jsp?CurrentPage=<%=m_cp%>&column=<%=m_column%>&key=<%=m_encoded_key%>">
 
     <TABLE WIDTH=620 BORDER=1 CELLSPACING=0 CELLPADDING=2 ALIGN=CENTER>
 
@@ -138,8 +156,8 @@
         <TR>
             <TD WIDTH=120 ALIGN=CENTER><B>주민등록번호</B></TD>
             <TD WIDTH=500>
-                <INPUT TYPE=TEXT NAME="UserJumin1" SIZE=6 MAXLENGTH=6> -
-                <INPUT TYPE=TEXT NAME="UserJumin2" SIZE=7 MAXLENGTH=7>
+                <INPUT TYPE=TEXT NAME="UserJumin1" SIZE=6 MAXLENGTH=6 style="ime-mode: disabled" onkeydown="javascript:NumKey()"> -
+                <INPUT TYPE=TEXT NAME="UserJumin2" SIZE=7 MAXLENGTH=7 style="ime-mode: disabled" onkeydown="javascript:NumKey()">
             </TD>
         </TR>
 
@@ -187,9 +205,9 @@
         <TR>
             <TD WIDTH=120 ALIGN=CENTER><B>전화번호</B></TD>
             <TD WIDTH=500>
-                <INPUT TYPE=TEXT NAME="UserTel1" SIZE=3 MAXLENGTH=3> -
-                <INPUT TYPE=TEXT NAME="UserTel2" SIZE=4 MAXLENGTH=4> -
-                <INPUT TYPE=TEXT NAME="UserTel3" SIZE=4 MAXLENGTH=4>
+                <INPUT TYPE=TEXT NAME="UserTel1" SIZE=3 MAXLENGTH=3 style="ime-mode: disabled" onkeydown="javascript:NumKey()"> -
+                <INPUT TYPE=TEXT NAME="UserTel2" SIZE=4 MAXLENGTH=4 style="ime-mode: disabled" onkeydown="javascript:NumKey()"> -
+                <INPUT TYPE=TEXT NAME="UserTel3" SIZE=4 MAXLENGTH=4 style="ime-mode: disabled" onkeydown="javascript:NumKey()">
             </TD>
         </TR>
 
@@ -201,8 +219,8 @@
                     <OPTION VALUE="010">010
                     <OPTION VALUE="011">011
                 </SELECT> -
-                <INPUT TYPE=TEXT NAME="UserHp2" SIZE=4 MAXLENGTH=4> -
-                <INPUT TYPE=TEXT NAME="UserHp3" SIZE=4 MAXLENGTH=4>
+                <INPUT TYPE=TEXT NAME="UserHp2" SIZE=4 MAXLENGTH=4 style="ime-mode: disabled" onkeydown="javascript:NumKey()"> -
+                <INPUT TYPE=TEXT NAME="UserHp3" SIZE=4 MAXLENGTH=4 style="ime-mode: disabled" onkeydown="javascript:NumKey()">
             </TD>
         </TR>
 
@@ -215,7 +233,7 @@
     <TR ALIGN=CENTER>
         <TD>
             <IMG SRC="../images/btn_be_member_3.gif" STYLE=CURSOR:HAND onclick="javascript:CheckMemberForm(BeMember)">&nbsp;&nbsp;
-            <IMG SRC="../images/btn_mb_cancel_3.gif" STYLE=CURSOR:HAND>
+            <IMG SRC="../images/btn_mb_cancel_3.gif" STYLE=CURSOR:HAND onclick="javascript:location.replace('../board/BoardList.jsp?CurrentPage=<%=m_cp%>&column=<%=m_column%>&key=<%=m_encoded_key%>')">
         </TD>
     </TR>
 

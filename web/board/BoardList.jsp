@@ -78,8 +78,6 @@
     <TITLE>게시글 리스트</TITLE>
 </HEAD>
 
-<BODY>
-
 <TABLE WIDTH=620 HEIGHT=40 BORDER=0 CELLSPACING=1 CELLPADDING=1 ALIGN=CENTER>
     <TR BGCOLOR=#A0A0A0>
         <TD ALIGN=CENTER><FONT SIZE=4><B>게시판 ( 리스트 )</B></FONT></TD>
@@ -91,7 +89,11 @@
     String member_id = (String) session.getAttribute("member_id");
     if (member_id == null) {
 %>
-<jsp:include page="../member/LoginForm.jsp"/>
+<jsp:include page="../member/LoginForm.jsp">
+    <jsp:param name="CurrentPage" value="<%=CurrentPage%>"/>
+    <jsp:param name="column" value="<%=column%>"/>
+    <jsp:param name="key" value="<%=key%>"/>
+</jsp:include>
 <%
 } else {
 %>
@@ -180,7 +182,8 @@
         <TR>
             <TD ALIGN=LEFT WIDTH=100>
                 <IMG SRC="../images/btn_new.gif"
-                     onClick="javascript:location.replace('BoardWrite.jsp?column=<%=column%>&key=<%=encoded_key%>&CurrentPage=<%=CurrentPage%>')" ;
+                     onClick="javascript:location.replace('BoardWrite.jsp?column=<%=column%>&key=<%=encoded_key%>&CurrentPage=<%=CurrentPage%>')"
+                     ;
                      STYLE=CURSOR:HAND>
             </TD>
             <TD WIDTH=320 ALIGN=CENTER>
