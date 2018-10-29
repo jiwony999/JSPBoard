@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<%@ page import ="java.sql.*"%>
-<%@ page import="java.net.URLEncoder"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="java.net.URLEncoder" %>
 
 <%
     int rno = Integer.parseInt(request.getParameter("rno"));
@@ -12,33 +12,33 @@
     String encoded_key = "";
 
     String column = request.getParameter("column");
-    if (column == null) column="";
+    if (column == null) column = "";
 
     String key = request.getParameter("key");
-    if(key!=null) {
+    if (key != null) {
         encoded_key = URLEncoder.encode(key, "utf-8");
-    }else{
-        key="";
+    } else {
+        key = "";
     }
 
 
     try {
-        String jdbcUrl ="jdbc:mysql://localhost:3306/jspdb";
+        String jdbcUrl = "jdbc:mysql://localhost:3306/jspdb";
         String jdbcId = "jspuser";
         String jdbcPw = "jsppass";
 
         Class.forName("com.mysql.jdbc.Driver");
-        conn = DriverManager.getConnection(jdbcUrl,jdbcId,jdbcPw);
+        conn = DriverManager.getConnection(jdbcUrl, jdbcId, jdbcPw);
 
         String Query1 = "UPDATE board SET UsrRefer=UsrRefer+1 WHERE RcdNo=?";
         pstmt = conn.prepareStatement(Query1);
 
-        pstmt.setInt(1,rno);
+        pstmt.setInt(1, rno);
         pstmt.executeUpdate();
 
         String Query2 = "SELECT UsrName,UsrMail,UsrSubject,UsrContent,UsrFileName,UsrFilesize FROM board WHERE RcdNo=?";
         pstmt = conn.prepareStatement(Query2);
-        pstmt.setInt(1,rno);
+        pstmt.setInt(1, rno);
         rs1 = pstmt.executeQuery();
         rs1.next();
 
@@ -46,10 +46,10 @@
         String mail = rs1.getString(2);
         String subject = rs1.getString(3).trim();
         String content = rs1.getString(4).trim();
-        content = content.replaceAll("\r\n","<br>");
+        content = content.replaceAll("\r\n", "<br>");
 
         String filename = rs1.getString(5);
-        int filesize = rs1.getInt(6)/1000;
+        int filesize = rs1.getInt(6) / 1000;
 
 
         int CurrentPage = Integer.parseInt(request.getParameter("CurrentPage"));
@@ -75,8 +75,13 @@
    String member_id = (String)session.getAttribute("member_id");
    if(member_id == null) {
 %>
-<jsp:include page="../member/LoginForm.jsp"/>
-    <%
+
+<jsp:include page="../member/LoginForm.jsp">
+    <jsp:param name="CurrentPage" value="<%=CurrentPage%>"/>
+    <jsp:param name="column" value="<%=column%>"/>
+    <jsp:param name="key" value="<%=key%>"/>
+</jsp:include>
+<%
    } else {
 %>
 <jsp:include page="../member/LoginState.jsp"/>
@@ -91,37 +96,41 @@
 
     <TR>
         <TD WIDTH=120 ALIGN=CENTER><B>이름</B></TD>
-        <TD WIDTH=500><%=name%></TD>
+        <TD WIDTH=500><%=name%>
+        </TD>
     </TR>
 
     <TR>
         <TD WIDTH=120 ALIGN=CENTER><B>전자우편</B></TD>
-        <TD WIDTH=500><%=mail%></TD>
+        <TD WIDTH=500><%=mail%>
+        </TD>
     </TR>
 
     <TR>
         <TD WIDTH=120 ALIGN=CENTER><B>제목</B></TD>
-        <TD WIDTH=500><%=subject%></TD>
+        <TD WIDTH=500><%=subject%>
+        </TD>
     </TR>
 
     <TR>
         <TD WIDTH=120 ALIGN=CENTER><B>내용</B></TD>
-        <TD WIDTH=500><%=content%></TD>
+        <TD WIDTH=500><%=content%>
+        </TD>
     </TR>
 
     <TR>
         <TD WIDTH=120 ALIGN=CENTER><B>첨부파일</B></TD>
         <TD WIDTH=500>
             <%
-                if(filename == null){
+                if (filename == null) {
                     out.println("첨부된 파일이 없습니다.");
-                }else{
-                    String IMGURL="../images/btn_filedown.gif";
-                    out.println("<IMG ALIGN=ABSMIDDLE SRC="+IMGURL+">");
+                } else {
+                    String IMGURL = "../images/btn_filedown.gif";
+                    out.println("<IMG ALIGN=ABSMIDDLE SRC=" + IMGURL + ">");
 
             %>
 
-            <A href="filedownload.jsp?filename=<%=filename%>"> <%=filename%>(<%=filesize%>Kbyte)</A>
+            <A href="filedownload.jsp?filename=<%=filename%>"><%=filename%>(<%=filesize%>Kbyte)</A>
 
             <%
                 }
@@ -136,18 +145,22 @@
 
     <TR ALIGN=CENTER>
         <TD WIDTH="310" ALIGN=LEFT>
-            <IMG SRC="../images/btn_list.gif" STYLE=CURSOR:HAND onClick="javascript:location.replace('BoardList.jsp?column=<%=column%>&key=<%=encoded_key%>&CurrentPage=<%=CurrentPage%>')">
+            <IMG SRC="../images/btn_list.gif" STYLE=CURSOR:HAND
+                 onClick="javascript:location.replace('BoardList.jsp?column=<%=column%>&key=<%=encoded_key%>&CurrentPage=<%=CurrentPage%>')">
         </TD>
         <TD WIDTH="310" ALIGN=RIGHT>
-            <IMG SRC="../images/btn_reply.gif" STYLE=CURSOR:HAND onClick="javascript:location.replace('BoardReply.jsp?rno=<%=rno%>&column=<%=column%>&key=<%=encoded_key%>&CurrentPage=<%=CurrentPage%>')">&nbsp;&nbsp;
-            <IMG SRC="../images/btn_mdfy.gif" STYLE=CURSOR:HAND onClick="javascript:location.replace('BoardModify.jsp?rno=<%=rno%>&column=<%=column%>&key=<%=encoded_key%>&CurrentPage=<%=CurrentPage%>')">&nbsp;&nbsp;
-            <IMG SRC="../images/btn_del.gif" STYLE=CURSOR:HAND onClick="javascript:location.replace('BoardDelete.jsp?rno=<%=rno%>&column=<%=column%>&key=<%=encoded_key%>&CurrentPage=<%=CurrentPage%>')">
+            <IMG SRC="../images/btn_reply.gif" STYLE=CURSOR:HAND
+                 onClick="javascript:location.replace('BoardReply.jsp?rno=<%=rno%>&column=<%=column%>&key=<%=encoded_key%>&CurrentPage=<%=CurrentPage%>')">&nbsp;&nbsp;
+            <IMG SRC="../images/btn_mdfy.gif" STYLE=CURSOR:HAND
+                 onClick="javascript:location.replace('BoardModify.jsp?rno=<%=rno%>&column=<%=column%>&key=<%=encoded_key%>&CurrentPage=<%=CurrentPage%>')">&nbsp;&nbsp;
+            <IMG SRC="../images/btn_del.gif" STYLE=CURSOR:HAND
+                 onClick="javascript:location.replace('BoardDelete.jsp?rno=<%=rno%>&column=<%=column%>&key=<%=encoded_key%>&CurrentPage=<%=CurrentPage%>')">
         </TD>
     </TR>
 
 </TABLE>
 <%
-    } catch(SQLException e){
+    } catch (SQLException e) {
         e.printStackTrace();
     } finally {
         rs1.close();

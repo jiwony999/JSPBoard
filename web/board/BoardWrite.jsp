@@ -50,21 +50,6 @@
         <TD ALIGN=CENTER><FONT SIZE=4><B>게시판 ( 게시글 입력 )</B></FONT></TD>
     </TR>
 </TABLE>
-
-<%
-    //------------------------------- JSP CODE START ( 세션 변수에 따른 문서 선택 )
-    String member_id = (String) session.getAttribute("member_id");
-    if (member_id == null) {
-%>
-<jsp:include page="../member/LoginForm.jsp"/>
-<%
-} else {
-%>
-<jsp:include page="../member/LoginState.jsp"/>
-<%
-    }
-//------------------------------- JSP CODE END 	
-%>
 <%
     String encoded_key = "";
 
@@ -81,6 +66,25 @@
 
     int CurrentPage = Integer.parseInt(request.getParameter("CurrentPage"));
 %>
+<%
+    //------------------------------- JSP CODE START ( 세션 변수에 따른 문서 선택 )
+    String member_id = (String) session.getAttribute("member_id");
+    if (member_id == null) {
+%>
+<jsp:include page="../member/LoginForm.jsp">
+    <jsp:param name="CurrentPage" value="<%=CurrentPage%>" />
+    <jsp:param name="column" value="<%=column%>" />
+    <jsp:param name="key" value="<%=key%>" />
+</jsp:include>
+<%
+} else {
+%>
+<jsp:include page="../member/LoginState.jsp"/>
+<%
+    }
+//------------------------------- JSP CODE END 	
+%>
+
 <FORM NAME="BoardWrite" METHOD=POST ACTION="BoardWriteProc.jsp" enctype="multipart/form-data">
 
     <TABLE WIDTH=620 BORDER=1 CELLSPACING=0 CELLPADDING=2 ALIGN=CENTER>

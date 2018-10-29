@@ -21,9 +21,9 @@
         column = "";
     String key = request.getParameter("key");
     if (key != null) {
-        encoded_key = URLEncoder.encode(key,"utf-8");
+        encoded_key = URLEncoder.encode(key, "utf-8");
     } else {
-        key ="";
+        key = "";
     }
 
     int CurrentPage = Integer.parseInt(request.getParameter("CurrentPage"));
@@ -50,8 +50,8 @@
         String content = rs.getString(4);
         String filename = rs.getString(5);
         int filesize = rs.getInt(6);
-        filesize = filesize/1000;
-        content.replaceAll("\r\n","<br>");
+        filesize = filesize / 1000;
+        content.replaceAll("\r\n", "<br>");
 %>
 <HTML>
 <HEAD>
@@ -84,7 +84,11 @@
     String member_id = (String) session.getAttribute("member_id");
     if (member_id == null) {
 %>
-<jsp:include page="../member/LoginForm.jsp"/>
+<jsp:include page="../member/LoginForm.jsp">
+    <jsp:param name="CurrentPage" value="<%=CurrentPage%>"/>
+    <jsp:param name="column" value="<%=column%>"/>
+    <jsp:param name="key" value="<%=key%>"/>
+</jsp:include>
 <%
 } else {
 %>
@@ -94,28 +98,33 @@
 //------------------------------- JSP CODE END 	
 %>
 
-<FORM NAME="BoardDelete" METHOD=POST ACTION="BoardDeleteProc.jsp?rno=<%=rno%>&column=<%=column%>&key=<%=encoded_key%>&CurrentPage=<%=CurrentPage%>">
+<FORM NAME="BoardDelete" METHOD=POST
+      ACTION="BoardDeleteProc.jsp?rno=<%=rno%>&column=<%=column%>&key=<%=encoded_key%>&CurrentPage=<%=CurrentPage%>">
 
     <TABLE WIDTH=620 BORDER=1 CELLSPACING=0 CELLPADDING=1 ALIGN=CENTER>
 
         <TR>
             <TD WIDTH=120 ALIGN=CENTER><B>이름</B></TD>
-            <TD WIDTH=500><%=name%></TD>
+            <TD WIDTH=500><%=name%>
+            </TD>
         </TR>
 
         <TR>
             <TD WIDTH=120 ALIGN=CENTER><B>전자우편</B></TD>
-            <TD WIDTH=500><%=mail%></TD>
+            <TD WIDTH=500><%=mail%>
+            </TD>
         </TR>
 
         <TR>
             <TD WIDTH=120 ALIGN=CENTER><B>제목</B></TD>
-            <TD WIDTH=500><%=subject%></TD>
+            <TD WIDTH=500><%=subject%>
+            </TD>
         </TR>
 
         <TR>
             <TD WIDTH=120 ALIGN=CENTER><B>내용</B></TD>
-            <TD WIDTH=500><%=content%></TD>
+            <TD WIDTH=500><%=content%>
+            </TD>
         </TR>
 
         <TR>
@@ -159,7 +168,8 @@
     <TR ALIGN=CENTER>
         <TD>
             <IMG SRC="../images/btn_del.gif" STYLE=CURSOR:HAND onClick="javascript:CheckForm(BoardDelete)">&nbsp;&nbsp;
-            <IMG SRC="../images/btn_cancel.gif" STYLE=CURSOR:HAND onClick="javascript:location.replace('BoardContent.jsp?rno=<%=rno%>&column=<%=column%>&key=<%=encoded_key%>&CurrentPage=<%=CurrentPage%>')">
+            <IMG SRC="../images/btn_cancel.gif" STYLE=CURSOR:HAND
+                 onClick="javascript:location.replace('BoardContent.jsp?rno=<%=rno%>&column=<%=column%>&key=<%=encoded_key%>&CurrentPage=<%=CurrentPage%>')">
         </TD>
     </TR>
 
