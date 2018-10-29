@@ -1,102 +1,211 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<%@ page import="java.sql.*" %>
 
+<% request.setCharacterEncoding("utf-8"); %>
+
+<%
+    String frm = request.getParameter("frm");
+    String UserAddress = request.getParameter("UserAddress");
+
+    Connection conn = null;
+    Statement stmt = null;
+    ResultSet rs1 = null;
+    ResultSet rs2 = null;
+
+    try {
+        String jdbcUrl = "jdbc:mysql://localhost:3306/jspdb";
+        String jdbcId = "jspuser";
+        String jdbcPw = "jsppass";
+
+        Class.forName("com.mysql.jdbc.Driver");
+        conn = DriverManager.getConnection(jdbcUrl, jdbcId, jdbcPw);
+
+        String Query1 = "select count(seq) from zipcode where dong like '%" + UserAddress + "%'";
+        stmt = conn.createStatement();
+        rs1 = stmt.executeQuery(Query1);
+        rs1.next();
+
+        int rows = rs1.getInt(1);
+%>
 <HTML>
 <HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="TEXT/HTML; CHARSET=euc-kr"/>
-	<LINK REL="stylesheet" type="text/css" href="../include/style.css">	
-	<TITLE>ÁÖ¼ÒÃ£±â - 2´Ü°è</TITLE>
+    <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="TEXT/HTML; CHARSET=utf-8"/>
+    <LINK REL="stylesheet" type="text/css" href="../include/style.css">
+    <TITLE>ì£¼ì†Œì°¾ê¸° - 2ë‹¨ê³„</TITLE>
+    <script>
+        function CheckForm(form) {
+            if (!form.UserAddress.focus()) {
+                alert('ìë©´ë™ ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”.');
+                form.UserAddress.focus();
+                return;
+            }
+            form.submit();
+        }
+
+        function InputAddress(zipcode, sido, gugun, dong, frm) {
+            var parent_form = eval("opener.document." + frm);
+            zipcode_1 = zipcode.substring(0, 3);
+            zipcode_2 = zipcode.substring(4, 7);
+            address = sido + " " + gugun + " " + dong;
+
+            parent_form.ZipCode1.value = zipcode_1;
+            parent_form.ZipCode2.value = zipcode_2;
+            parent_form.UserAddress1.value = address;
+            parent_form.UserAddress2.focus();
+
+            self.close();
+        }
+    </script>
 </HEAD>
 
 <BODY TOPMARGIN=0 LEFTMARGIN=0>
 
 <TABLE WIDTH=500 CELLSPACING=0 CELLPADDING=0 TOPMARGIN=0 LEFTMARGIN=0>
 
-	<TR BGCOLOR=#A0A0A0>
-		<TD ALIGN=CENTER HEIGHT=30><FONT COLOR=WHITE SIZE=3><B>ÁÖ¼ÒÃ£±â - 2´Ü°è</B></FONT></TD>
-	</TR>
+    <TR BGCOLOR=#A0A0A0>
+        <TD ALIGN=CENTER HEIGHT=30><FONT COLOR=WHITE SIZE=3><B>ì£¼ì†Œì°¾ê¸° - 2ë‹¨ê³„</B></FONT></TD>
+    </TR>
 
-<%
-	int ok=0;
-	if( ok != 0 ) {
-		//------------------------------- ÇØ´ç ÁÖ¼Ò°¡ Á¸ÀçÇÏ´Â °æ¿ì ÁÖ¼Ò ¼±ÅÃ
-%>
+    <%
+        if (rows > 0) {
+            //------------------------------- í•´ë‹¹ ì£¼ì†Œê°€ ì¡´ì¬í•˜ëŠ” ê²½ìš° ì£¼ì†Œ ì„ íƒ
+    %>
 
-	<TR>
-		<TD ALIGN=CENTER>
-			<TABLE WIDTH=450 CELLSPACING=0 CELLPADDING=0 TOPMARGIN=0 LEFTMARGIN=0>
-				<TR>
- 					<TD ALIGN=CENTER HEIGHT=30><BR>ÃÑ 1°³ÀÇ ÁÖ¼Ò°¡ °Ë»öµÇ¾ú½À´Ï´Ù.</TD>
-				</TR>
-				<TR><TD HEIGHT=2 BGCOLOR=#AAAAAA></TD></TR>
- 				<TR><TD HEIGHT=2 BGCOLOR=#FFFFFF></TD></TR>
-			</TABLE>
-		</TD>
-	</TR>
+    <TR>
+        <TD ALIGN=CENTER>
+            <TABLE WIDTH=450 CELLSPACING=0 CELLPADDING=0 TOPMARGIN=0 LEFTMARGIN=0>
+                <TR>
+                    <TD ALIGN=CENTER HEIGHT=30><BR>ì´ <b><%=rows%></b>ê°œì˜ ì£¼ì†Œê°€ ê²€ìƒ‰ë˜ì—ˆìŠµë‹ˆë‹¤.</TD>
+                </TR>
+                <TR>
+                    <TD HEIGHT=2 BGCOLOR=#AAAAAA></TD>
+                </TR>
+                <TR>
+                    <TD HEIGHT=2 BGCOLOR=#FFFFFF></TD>
+                </TR>
+            </TABLE>
+        </TD>
+    </TR>
 
-	<TR>
-		<TD ALIGN=CENTER>
-			<TABLE WIDTH=400 CELLSPACING=0 CELLPADDING=0 TOPMARGIN=0 LEFTMARGIN=0>
-				<TR><TD WIDTH=400 HEIGHT=2 BGCOLOR=#FFFFFF></TD></TR>
-				<TR>
- 					<TD>[135-810] ¼­¿ï½Ã °­³²±¸ °³Æ÷1µ¿ 660</TD>
-				</TR>
-				<TR><TD HEIGHT=1 BGCOLOR=#FFFFFF></TD></TR>
-				<TR><TD HEIGHT=1 BGCOLOR=#E2E2E2></TD></TR>
-				<TR><TD HEIGHT=1 BGCOLOR=#FFFFFF></TD></TR>
-			</TABLE>
-		</TD>
-	</TR>
+    <%
+        String Query2 = "select zipcode, sido, gugun, dong, bunji from zipcode where dong like '%" + UserAddress + "%'";
 
-	<TR>
-		<TD ALIGN=CENTER>
-			<TABLE WIDTH=450 CELLSPACING=0 CELLPADDING=0 TOPMARGIN=0 LEFTMARGIN=0>
-				<TR><TD HEIGHT=10 BGCOLOR=#FFFFFF></TD></TR>
-				<TR><TD HEIGHT=3 BGCOLOR=#AAAAAA></TD></TR>
-				<TR><TD HEIGHT=3 BGCOLOR=#FFFFFF></TD></TR>
-			</TABLE>
-		</TD>
-	</TR>
+        stmt = conn.createStatement();
+        rs2 = stmt.executeQuery(Query2);
 
-<%
-	} else {
-	//------------------------------- ÇØ´ç ÁÖ¼Ò°¡ Á¸ÀçÇÏÁö ¾Ê´Â °æ¿ì Ã³¸®
-%>
+        while (rs2.next()) {
+            String zcode = rs2.getString(1);
+            String sido = rs2.getString(2);
+            String gugun = rs2.getString(3);
+            String dong = rs2.getString(4);
+            String bunji = rs2.getString(5);
 
-	<TR>
-		<TD ALIGN=CENTER>
-		
-			<FORM NAME="AddressSearch2" METHOD=POST ACTION="AddressSearch_2.jsp">
-			
-			<TABLE WIDTH=400 CELLSPACING=0 CELLPADDING=0 TOPMARGIN=0 LEFTMARGIN=0>
-			
-				<TR><TD WIDTH=400 HEIGHT=2 BGCOLOR=#FFFFFF></TD></TR>
-				
-				<TR>
-					<TD ALIGN=CENTER><BR>ÇØ´ç ÁÖ¼Ò°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä.</TD>
-				</TR>
-				
-				<TR><TD HEIGHT=3 BGCOLOR=#FFFFFF></TD></TR>
-				<TR><TD HEIGHT=1 BGCOLOR=#E2E2E2></TD></TR>
-				<TR><TD HEIGHT=4 BGCOLOR=#FFFFFF></TD></TR>
-				
-				<TR>
-					<TD ALIGN=CENTER>
-						<INPUT TYPE=TEXT NAME="UserAddress" SIZE=20 MAXLENGTH=20>
-						<IMG SRC="../images/btn_search.gif" BORDER=0 ALIGN=ABSMIDDLE STYLE=CURSOR:HAND><BR><BR>
-						Ã£°íÀÚ ÇÏ½Ã´Â À¾, ¸í, µ¿ÀÇ ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä.<BR>(¿¹) ½Åµµ¸²µ¿ÀÎ °æ¿ì '½Åµµ¸²'
-					</TD>
-				</TR>
-				
-			</TABLE>
-			
-			</FORM>
-			
-		</TD>
-	</TR>
+            String Address = "[" + zcode + "]" + sido + " " + gugun + " " + dong + " " + bunji;
 
-<%
-	}
-%>
+    %>
+
+    <TR>
+        <TD ALIGN=CENTER>
+            <TABLE WIDTH=400 CELLSPACING=0 CELLPADDING=0 TOPMARGIN=0 LEFTMARGIN=0>
+                <TR>
+                    <TD WIDTH=400 HEIGHT=2 BGCOLOR=#FFFFFF></TD>
+                </TR>
+                <TR>
+                    <TD>
+                        <a href="javascript:InputAddress('<%=zcode%>','<%=sido%>','<%=gugun%>','<%=dong%>','<%=frm%>')"><%=Address%>></a>
+                    </TD>
+                </TR>
+                <TR>
+                    <TD HEIGHT=1 BGCOLOR=#FFFFFF></TD>
+                </TR>
+                <TR>
+                    <TD HEIGHT=1 BGCOLOR=#E2E2E2></TD>
+                </TR>
+                <TR>
+                    <TD HEIGHT=1 BGCOLOR=#FFFFFF></TD>
+                </TR>
+            </TABLE>
+        </TD>
+    </TR>
+    <%
+        }
+    %>
+    <TR>
+        <TD ALIGN=CENTER>
+            <TABLE WIDTH=450 CELLSPACING=0 CELLPADDING=0 TOPMARGIN=0 LEFTMARGIN=0>
+                <TR>
+                    <TD HEIGHT=10 BGCOLOR=#FFFFFF></TD>
+                </TR>
+                <TR>
+                    <TD HEIGHT=3 BGCOLOR=#AAAAAA></TD>
+                </TR>
+                <TR>
+                    <TD HEIGHT=3 BGCOLOR=#FFFFFF></TD>
+                </TR>
+            </TABLE>
+        </TD>
+    </TR>
+
+    <%
+        rs2.close();
+    } else {
+        //------------------------------- í•´ë‹¹ ì£¼ì†Œê°€ ì¡´ì¬í•˜ì§€ ì•ŠëŠ” ê²½ìš° ì²˜ë¦¬
+    %>
+
+    <TR>
+        <TD ALIGN=CENTER>
+
+            <FORM NAME="AddressSearch2" METHOD=POST ACTION="AddressSearch_2.jsp?frm=<%=frm%>">
+
+                <TABLE WIDTH=400 CELLSPACING=0 CELLPADDING=0 TOPMARGIN=0 LEFTMARGIN=0>
+
+                    <TR>
+                        <TD WIDTH=400 HEIGHT=2 BGCOLOR=#FFFFFF></TD>
+                    </TR>
+
+                    <TR>
+                        <TD ALIGN=CENTER><BR>í•´ë‹¹ ì£¼ì†Œê°€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•˜ì„¸ìš”.</TD>
+                    </TR>
+
+                    <TR>
+                        <TD HEIGHT=3 BGCOLOR=#FFFFFF></TD>
+                    </TR>
+                    <TR>
+                        <TD HEIGHT=1 BGCOLOR=#E2E2E2></TD>
+                    </TR>
+                    <TR>
+                        <TD HEIGHT=4 BGCOLOR=#FFFFFF></TD>
+                    </TR>
+
+                    <TR>
+                        <TD ALIGN=CENTER>
+                            <INPUT TYPE=TEXT NAME="UserAddress" SIZE=20 MAXLENGTH=20>
+                            <IMG SRC="../images/btn_search.gif" BORDER=0 ALIGN=ABSMIDDLE STYLE=CURSOR:HAND
+                                 onclick="javascript:CheckcForm(AddressSearch2)"><BR><BR>
+                            ì°¾ê³ ì í•˜ì‹œëŠ” ì, ëª…, ë™ì˜ ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”.<BR>(ì˜ˆ) ì‹ ë„ë¦¼ë™ì¸ ê²½ìš° 'ì‹ ë„ë¦¼'
+                        </TD>
+                    </TR>
+
+                </TABLE>
+
+            </FORM>
+
+        </TD>
+    </TR>
+
+    <%
+            }
+        } catch
+        (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            rs1.close();
+            stmt.close();
+            conn.close();
+
+        }
+
+    %>
 
 </TABLE>
 

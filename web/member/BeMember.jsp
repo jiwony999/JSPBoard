@@ -197,10 +197,10 @@
         <TR>
             <TD WIDTH=120 ALIGN=CENTER><B>주 소</B></TD>
             <TD WIDTH=500>
-                <INPUT TYPE=TEXT NAME="ZipCode1" SIZE=3 MAXLENGTH=3> -
-                <INPUT TYPE=TEXT NAME="ZipCode2" SIZE=3 MAXLENGTH=3><BR>
-                <INPUT TYPE=TEXT NAME="UserAddress1" SIZE=45 MAXLENGTH=110">
-                <IMG SRC="../images/btn_post_3.gif" BORDER=0 ALIGN=ABSMIDDLE STYLE=CURSOR:HAND><BR>&nbsp;
+                <INPUT TYPE=TEXT NAME="ZipCode1" SIZE=3 MAXLENGTH=3 readonly onclick="javascript:alert('우편번호 검색버튼을 이용하세요')"> -
+                <INPUT TYPE=TEXT NAME="ZipCode2" SIZE=3 MAXLENGTH=3 readonly onclick="javascript:alert('우편번호 검색버튼을 이용하세요')"><BR>
+                <INPUT TYPE=TEXT NAME="UserAddress1" SIZE=45 MAXLENGTH=110" readonly onclick="javascript:alert('우편번호 검색버튼을 이용하세요')">
+                <IMG SRC="../images/btn_post_3.gif" BORDER=0 ALIGN=ABSMIDDLE STYLE=CURSOR:HAND onclick="javascript:AddressSearch('AddressSearch_1.jsp','BeMember','SearchAddress',520,220,'yes')"><BR>&nbsp;
                 나머지 주소
                 <INPUT TYPE=TEXT NAME="UserAddress2" SIZE=45 MAXLENGTH=110>
             </TD>

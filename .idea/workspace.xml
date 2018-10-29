@@ -8,10 +8,10 @@
   <component name="ChangeListManager">
     <list default="true" id="9922164b-e826-4837-979a-5776627eac40" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/board/BoardContent.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/board/BoardContent.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/include/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/include/scripts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/member/AddressSearch_1.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/member/AddressSearch_1.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/member/AddressSearch_2.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/member/AddressSearch_2.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/member/BeMember.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/member/BeMember.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/member/IdCheck.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/member/IdCheck.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,9 +44,9 @@
     <session id="-814759430">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="9" />
+          <entry key="project.closed" value="10" />
           <entry key="project.open.time.16" value="1" />
-          <entry key="project.open.time.20" value="1" />
+          <entry key="project.open.time.20" value="2" />
           <entry key="project.open.time.25" value="1" />
           <entry key="project.open.time.27" value="2" />
           <entry key="project.open.time.3" value="1" />
@@ -55,15 +55,15 @@
           <entry key="project.open.time.40" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="11" />
+          <entry key="project.opened" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="classpath" value="1" />
           <entry key="iml" value="1" />
-          <entry key="js" value="2" />
-          <entry key="jsp" value="55" />
+          <entry key="js" value="4" />
+          <entry key="jsp" value="60" />
           <entry key="prefs" value="1" />
           <entry key="project" value="1" />
           <entry key="sql" value="3" />
@@ -74,8 +74,8 @@
         <counts>
           <entry key="Eclipse" value="2" />
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JSP" value="55" />
-          <entry key="JavaScript" value="2" />
+          <entry key="JSP" value="60" />
+          <entry key="JavaScript" value="4" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="Scratch" value="3" />
           <entry key="XML" value="8" />
@@ -84,18 +84,18 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="classpath" value="1" />
-          <entry key="js" value="1372" />
-          <entry key="jsp" value="7679" />
+          <entry key="js" value="1433" />
+          <entry key="jsp" value="9741" />
           <entry key="sql" value="674" />
-          <entry key="txt" value="172" />
+          <entry key="txt" value="190" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Eclipse" value="1" />
-          <entry key="JSP" value="7679" />
-          <entry key="JavaScript" value="1372" />
-          <entry key="PLAIN_TEXT" value="172" />
+          <entry key="JSP" value="9741" />
+          <entry key="JavaScript" value="1433" />
+          <entry key="PLAIN_TEXT" value="190" />
           <entry key="SQL" value="380" />
           <entry key="Scratch" value="294" />
         </counts>
@@ -111,26 +111,41 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/member/BeMember.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="7" column="32" selection-end-line="252" selection-end-column="7" />
+            <state relative-caret-position="240">
+              <caret line="199" column="67" selection-start-line="199" selection-start-column="67" selection-end-line="199" selection-end-column="67" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/member/IdCheck.jsp">
+        <entry file="file://$PROJECT_DIR$/web/board/BoardContent.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1489">
-              <caret line="129" lean-forward="true" selection-start-line="129" selection-end-line="129" />
+            <state relative-caret-position="-144">
+              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/member/AddressSearch_1.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="552">
+              <caret line="23" column="78" lean-forward="true" selection-start-line="23" selection-start-column="78" selection-end-line="23" selection-end-column="78" />
+              <folding>
+                <element signature="n#STYLE#0;n#IMG#0;n#TD#0;n#TR#1;n#TABLE#0;n#FORM#0;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/board/BoardWrite.jsp">
+        <entry file="file://$PROJECT_DIR$/web/member/AddressSearch_2.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="71" column="28" selection-end-line="153" selection-end-column="7" />
+            <state relative-caret-position="312">
+              <caret line="117" column="20" lean-forward="true" selection-start-line="117" selection-start-column="20" selection-end-line="117" selection-end-column="20" />
+              <folding>
+                <element signature="n#STYLE#0;n#IMG#0;n#TD#0;n#TR#5;n#TABLE#0;n#FORM#0;n#TD#0;n#TR#4;n#TABLE#0;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -151,8 +166,9 @@
       <find>BeMember</find>
       <find>BeMemberPro</find>
       <find>where</find>
-      <find>euc-kr</find>
       <find>btn_dup</find>
+      <find>euc-kr</find>
+      <find>frm</find>
     </findStrings>
     <replaceStrings>
       <replace>utf-8</replace>
@@ -170,7 +186,6 @@
         <option value="$PROJECT_DIR$/web/board/BoardDeleteProc.jsp" />
         <option value="$PROJECT_DIR$/web/board/BoardModifyProc.jsp" />
         <option value="$PROJECT_DIR$/web/board/BoardReplyProc.jsp" />
-        <option value="$PROJECT_DIR$/web/member/AddressSearch_1.jsp" />
         <option value="$PROJECT_DIR$/web/member/LoginForm.jsp" />
         <option value="$PROJECT_DIR$/web/board/BoardList.jsp" />
         <option value="$PROJECT_DIR$/web/member/PwSearchProc.jsp" />
@@ -180,10 +195,12 @@
         <option value="$PROJECT_DIR$/web/board/BoardReply.jsp" />
         <option value="$PROJECT_DIR$/web/board/BoardModify.jsp" />
         <option value="$PROJECT_DIR$/web/board/BoardDelete.jsp" />
-        <option value="$PROJECT_DIR$/web/include/scripts.js" />
         <option value="$PROJECT_DIR$/web/member/IdCheck.jsp" />
-        <option value="$PROJECT_DIR$/web/member/BeMember.jsp" />
         <option value="$PROJECT_DIR$/web/board/BoardContent.jsp" />
+        <option value="$PROJECT_DIR$/web/include/scripts.js" />
+        <option value="$PROJECT_DIR$/web/member/BeMember.jsp" />
+        <option value="$PROJECT_DIR$/web/member/AddressSearch_1.jsp" />
+        <option value="$PROJECT_DIR$/web/member/AddressSearch_2.jsp" />
       </list>
     </option>
   </component>
@@ -201,10 +218,9 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="450" />
-    <option name="y" value="125" />
-    <option name="width" value="980" />
-    <option name="height" value="850" />
+    <option name="x" value="470" />
+    <option name="width" value="1459" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -214,8 +230,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -238,13 +254,14 @@
               <item name="jspboard" type="b2602c69:ProjectViewProjectNode" />
               <item name="jspboard" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
+              <item name="board" type="462c0819:PsiDirectoryNode" />
+              <item name="script" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="jspboard" type="b2602c69:ProjectViewProjectNode" />
               <item name="jspboard" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="member" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="jspboard" type="b2602c69:ProjectViewProjectNode" />
@@ -259,6 +276,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="SearchEverywhereHistoryKey" value="Addr&#9;FILE&#9;file://D:/Project/IdeaProjects/jspboard/web/member/AddressSearch_2.jsp&#10;Ad&#9;FILE&#9;file://D:/Project/IdeaProjects/jspboard/web/member/AddressSearch_1.jsp&#10;BeMem&#9;FILE&#9;file://D:/Project/IdeaProjects/jspboard/web/member/BeMember.jsp" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540186058125" />
@@ -395,7 +413,8 @@
       <workItem from="1540181588347" duration="4399000" />
       <workItem from="1540293047560" duration="15000" />
       <workItem from="1540644936363" duration="825000" />
-      <workItem from="1540775430448" duration="2700000" />
+      <workItem from="1540775430448" duration="5241000" />
+      <workItem from="1540786183617" duration="2142000" />
     </task>
     <task id="LOCAL-00001" summary="update to page navigation">
       <created>1538964829645</created>
@@ -453,11 +472,18 @@
       <option name="project" value="LOCAL" />
       <updated>1540776563545</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Add 아이디 중복검사">
+      <created>1540778151265</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1540778151265</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27545000" />
+    <option name="totallyTimeSpent" value="32228000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -472,7 +498,7 @@
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2295302" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17651007" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -482,7 +508,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.45454547" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.45454547" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3986014" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -522,7 +548,8 @@
     <MESSAGE value="update 주민번호 체크 함수 수정" />
     <MESSAGE value="add 회원가입" />
     <MESSAGE value="update Loginform load 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="update Loginform load 수정" />
+    <MESSAGE value="Add 아이디 중복검사" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add 아이디 중복검사" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.project" />
@@ -573,20 +600,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/member/AddressSearch_2.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="614">
-          <caret line="88" column="16" selection-start-line="88" selection-start-column="16" selection-end-line="88" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/member/AddressSearch_1.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="23" column="50" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/bd892642-3027-4552-acdc-77e710c3a777/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -629,13 +642,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/board/BoardList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="614">
-          <caret line="93" column="48" selection-start-line="93" selection-start-column="48" selection-end-line="93" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/member/LoginForm.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
@@ -659,36 +665,70 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/include/scripts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="614">
-          <caret line="168" column="43" selection-start-line="168" selection-start-column="43" selection-end-line="168" selection-end-column="43" />
+        <state relative-caret-position="192">
+          <caret line="163" column="8" selection-start-line="163" selection-start-column="8" selection-end-line="163" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/board/BoardContent.jsp">
+    <entry file="file://$PROJECT_DIR$/web/board/script/scripts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" lean-forward="true" selection-end-line="171" selection-end-column="7" />
+        <state relative-caret-position="384">
+          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/member/BeMember.jsp">
+    <entry file="file://$PROJECT_DIR$/web/board/BoardList.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="32" selection-end-line="252" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/member/IdCheck.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1489">
-          <caret line="129" lean-forward="true" selection-start-line="129" selection-end-line="129" />
+        <state relative-caret-position="265">
+          <caret line="91" column="33" selection-start-line="91" selection-start-column="33" selection-end-line="91" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/board/BoardWrite.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="71" column="28" selection-end-line="153" selection-end-column="7" />
+        <state relative-caret-position="110">
+          <caret line="64" column="5" lean-forward="true" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/member/IdCheck.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="71" lean-forward="true" selection-end-line="131" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/member/AddressSearch_1.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="23" column="78" lean-forward="true" selection-start-line="23" selection-start-column="78" selection-end-line="23" selection-end-column="78" />
+          <folding>
+            <element signature="n#STYLE#0;n#IMG#0;n#TD#0;n#TR#1;n#TABLE#0;n#FORM#0;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/member/BeMember.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="199" column="67" selection-start-line="199" selection-start-column="67" selection-end-line="199" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/board/BoardContent.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-144">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/member/AddressSearch_2.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="117" column="20" lean-forward="true" selection-start-line="117" selection-start-column="20" selection-end-line="117" selection-end-column="20" />
+          <folding>
+            <element signature="n#STYLE#0;n#IMG#0;n#TD#0;n#TR#5;n#TABLE#0;n#FORM#0;n#TD#0;n#TR#4;n#TABLE#0;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
