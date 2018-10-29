@@ -9,9 +9,6 @@
     <list default="true" id="9922164b-e826-4837-979a-5776627eac40" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/include/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/include/scripts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/member/AddressSearch_1.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/member/AddressSearch_1.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/member/AddressSearch_2.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/member/AddressSearch_2.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/member/BeMember.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/member/BeMember.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -62,7 +59,7 @@
         <counts>
           <entry key="classpath" value="1" />
           <entry key="iml" value="1" />
-          <entry key="js" value="4" />
+          <entry key="js" value="5" />
           <entry key="jsp" value="60" />
           <entry key="prefs" value="1" />
           <entry key="project" value="1" />
@@ -75,7 +72,7 @@
           <entry key="Eclipse" value="2" />
           <entry key="IDEA_MODULE" value="1" />
           <entry key="JSP" value="60" />
-          <entry key="JavaScript" value="4" />
+          <entry key="JavaScript" value="5" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="Scratch" value="3" />
           <entry key="XML" value="8" />
@@ -84,18 +81,18 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="classpath" value="1" />
-          <entry key="js" value="1433" />
+          <entry key="js" value="1444" />
           <entry key="jsp" value="9741" />
           <entry key="sql" value="674" />
-          <entry key="txt" value="190" />
+          <entry key="txt" value="200" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Eclipse" value="1" />
           <entry key="JSP" value="9741" />
-          <entry key="JavaScript" value="1433" />
-          <entry key="PLAIN_TEXT" value="190" />
+          <entry key="JavaScript" value="1444" />
+          <entry key="PLAIN_TEXT" value="200" />
           <entry key="SQL" value="380" />
           <entry key="Scratch" value="294" />
         </counts>
@@ -112,7 +109,16 @@
         <entry file="file://$PROJECT_DIR$/web/member/BeMember.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
-              <caret line="199" column="67" selection-start-line="199" selection-start-column="67" selection-end-line="199" selection-end-column="67" />
+              <caret line="202" column="187" lean-forward="true" selection-start-line="202" selection-start-column="187" selection-end-line="202" selection-end-column="187" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/include/scripts.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="384">
+              <caret line="171" column="1" lean-forward="true" selection-start-line="171" selection-start-column="1" selection-end-line="171" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -138,11 +144,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/member/AddressSearch_2.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="117" column="20" lean-forward="true" selection-start-line="117" selection-start-column="20" selection-end-line="117" selection-end-column="20" />
+            <state relative-caret-position="2880">
+              <caret line="120" column="20" lean-forward="true" selection-start-line="120" selection-start-column="20" selection-end-line="120" selection-end-column="20" />
               <folding>
                 <element signature="n#STYLE#0;n#IMG#0;n#TD#0;n#TR#5;n#TABLE#0;n#FORM#0;n#TD#0;n#TR#4;n#TABLE#0;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
               </folding>
@@ -197,10 +203,10 @@
         <option value="$PROJECT_DIR$/web/board/BoardDelete.jsp" />
         <option value="$PROJECT_DIR$/web/member/IdCheck.jsp" />
         <option value="$PROJECT_DIR$/web/board/BoardContent.jsp" />
-        <option value="$PROJECT_DIR$/web/include/scripts.js" />
         <option value="$PROJECT_DIR$/web/member/BeMember.jsp" />
         <option value="$PROJECT_DIR$/web/member/AddressSearch_1.jsp" />
         <option value="$PROJECT_DIR$/web/member/AddressSearch_2.jsp" />
+        <option value="$PROJECT_DIR$/web/include/scripts.js" />
       </list>
     </option>
   </component>
@@ -414,7 +420,7 @@
       <workItem from="1540293047560" duration="15000" />
       <workItem from="1540644936363" duration="825000" />
       <workItem from="1540775430448" duration="5241000" />
-      <workItem from="1540786183617" duration="2142000" />
+      <workItem from="1540786183617" duration="2752000" />
     </task>
     <task id="LOCAL-00001" summary="update to page navigation">
       <created>1538964829645</created>
@@ -479,11 +485,18 @@
       <option name="project" value="LOCAL" />
       <updated>1540778151265</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Add 주소 검색 추가">
+      <created>1540788355946</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1540788355947</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32228000" />
+    <option name="totallyTimeSpent" value="32838000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -498,7 +511,7 @@
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17651007" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17651007" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -549,7 +562,8 @@
     <MESSAGE value="add 회원가입" />
     <MESSAGE value="update Loginform load 수정" />
     <MESSAGE value="Add 아이디 중복검사" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add 아이디 중복검사" />
+    <MESSAGE value="Add 주소 검색 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add 주소 검색 추가" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.project" />
@@ -663,13 +677,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/include/scripts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="163" column="8" selection-start-line="163" selection-start-column="8" selection-end-line="163" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/board/script/scripts.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="384">
@@ -698,6 +705,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/member/BeMember.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="202" column="187" lean-forward="true" selection-start-line="202" selection-start-column="187" selection-end-line="202" selection-end-column="187" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/member/AddressSearch_2.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2880">
+          <caret line="120" column="20" lean-forward="true" selection-start-line="120" selection-start-column="20" selection-end-line="120" selection-end-column="20" />
+          <folding>
+            <element signature="n#STYLE#0;n#IMG#0;n#TD#0;n#TR#5;n#TABLE#0;n#FORM#0;n#TD#0;n#TR#4;n#TABLE#0;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/member/AddressSearch_1.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="552">
@@ -708,13 +732,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/member/BeMember.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="199" column="67" selection-start-line="199" selection-start-column="67" selection-end-line="199" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/board/BoardContent.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-144">
@@ -722,13 +739,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/member/AddressSearch_2.jsp">
+    <entry file="file://$PROJECT_DIR$/web/include/scripts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="117" column="20" lean-forward="true" selection-start-line="117" selection-start-column="20" selection-end-line="117" selection-end-column="20" />
-          <folding>
-            <element signature="n#STYLE#0;n#IMG#0;n#TD#0;n#TR#5;n#TABLE#0;n#FORM#0;n#TD#0;n#TR#4;n#TABLE#0;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="384">
+          <caret line="171" column="1" lean-forward="true" selection-start-line="171" selection-start-column="1" selection-end-line="171" selection-end-column="1" />
         </state>
       </provider>
     </entry>
