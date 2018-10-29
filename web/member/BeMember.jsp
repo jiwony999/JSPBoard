@@ -141,7 +141,8 @@
     </TR>
 </TABLE>
 
-<FORM NAME="BeMember" METHOD=POST ACTION="BeMemberProc.jsp?CurrentPage=<%=m_cp%>&column=<%=m_column%>&key=<%=m_encoded_key%>">
+<FORM NAME="BeMember" METHOD=POST
+      ACTION="BeMemberProc.jsp?CurrentPage=<%=m_cp%>&column=<%=m_column%>&key=<%=m_encoded_key%>">
 
     <TABLE WIDTH=620 BORDER=1 CELLSPACING=0 CELLPADDING=2 ALIGN=CENTER>
 
@@ -156,8 +157,10 @@
         <TR>
             <TD WIDTH=120 ALIGN=CENTER><B>주민등록번호</B></TD>
             <TD WIDTH=500>
-                <INPUT TYPE=TEXT NAME="UserJumin1" SIZE=6 MAXLENGTH=6 style="ime-mode: disabled" onkeydown="javascript:NumKey()"> -
-                <INPUT TYPE=TEXT NAME="UserJumin2" SIZE=7 MAXLENGTH=7 style="ime-mode: disabled" onkeydown="javascript:NumKey()">
+                <INPUT TYPE=TEXT NAME="UserJumin1" SIZE=6 MAXLENGTH=6 style="ime-mode: disabled"
+                       onkeydown="javascript:NumKey()"> -
+                <INPUT TYPE=TEXT NAME="UserJumin2" SIZE=7 MAXLENGTH=7 style="ime-mode: disabled"
+                       onkeydown="javascript:NumKey()">
             </TD>
         </TR>
 
@@ -165,7 +168,8 @@
             <TD WIDTH=120 ALIGN=CENTER><B>아이디</B></TD>
             <TD WIDTH=500>
                 <INPUT TYPE=TEXT NAME="UserId" SIZE=20 MAXLENGTH=10 style="ime-mode:inactive">
-                <IMG SRC="../images/btn_dup_id_3.gif" BORDER=0 ALIGN=ABSMIDDLE STYLE=CURSOR:HAND>
+                <IMG SRC="../images/btn_dup_id_3.gif" BORDER=0 ALIGN=ABSMIDDLE STYLE=CURSOR:HAND
+                     onclick="javascript:IdCheck('IdCheck.jsp','BeMember','UserId','CheckId',380,200,'no')">
             </TD>
         </TR>
 
@@ -205,9 +209,12 @@
         <TR>
             <TD WIDTH=120 ALIGN=CENTER><B>전화번호</B></TD>
             <TD WIDTH=500>
-                <INPUT TYPE=TEXT NAME="UserTel1" SIZE=3 MAXLENGTH=3 style="ime-mode: disabled" onkeydown="javascript:NumKey()"> -
-                <INPUT TYPE=TEXT NAME="UserTel2" SIZE=4 MAXLENGTH=4 style="ime-mode: disabled" onkeydown="javascript:NumKey()"> -
-                <INPUT TYPE=TEXT NAME="UserTel3" SIZE=4 MAXLENGTH=4 style="ime-mode: disabled" onkeydown="javascript:NumKey()">
+                <INPUT TYPE=TEXT NAME="UserTel1" SIZE=3 MAXLENGTH=3 style="ime-mode: disabled"
+                       onkeydown="javascript:NumKey()"> -
+                <INPUT TYPE=TEXT NAME="UserTel2" SIZE=4 MAXLENGTH=4 style="ime-mode: disabled"
+                       onkeydown="javascript:NumKey()"> -
+                <INPUT TYPE=TEXT NAME="UserTel3" SIZE=4 MAXLENGTH=4 style="ime-mode: disabled"
+                       onkeydown="javascript:NumKey()">
             </TD>
         </TR>
 
@@ -219,8 +226,10 @@
                     <OPTION VALUE="010">010
                     <OPTION VALUE="011">011
                 </SELECT> -
-                <INPUT TYPE=TEXT NAME="UserHp2" SIZE=4 MAXLENGTH=4 style="ime-mode: disabled" onkeydown="javascript:NumKey()"> -
-                <INPUT TYPE=TEXT NAME="UserHp3" SIZE=4 MAXLENGTH=4 style="ime-mode: disabled" onkeydown="javascript:NumKey()">
+                <INPUT TYPE=TEXT NAME="UserHp2" SIZE=4 MAXLENGTH=4 style="ime-mode: disabled"
+                       onkeydown="javascript:NumKey()"> -
+                <INPUT TYPE=TEXT NAME="UserHp3" SIZE=4 MAXLENGTH=4 style="ime-mode: disabled"
+                       onkeydown="javascript:NumKey()">
             </TD>
         </TR>
 
@@ -233,7 +242,8 @@
     <TR ALIGN=CENTER>
         <TD>
             <IMG SRC="../images/btn_be_member_3.gif" STYLE=CURSOR:HAND onclick="javascript:CheckMemberForm(BeMember)">&nbsp;&nbsp;
-            <IMG SRC="../images/btn_mb_cancel_3.gif" STYLE=CURSOR:HAND onclick="javascript:location.replace('../board/BoardList.jsp?CurrentPage=<%=m_cp%>&column=<%=m_column%>&key=<%=m_encoded_key%>')">
+            <IMG SRC="../images/btn_mb_cancel_3.gif" STYLE=CURSOR:HAND
+                 onclick="javascript:location.replace('../board/BoardList.jsp?CurrentPage=<%=m_cp%>&column=<%=m_column%>&key=<%=m_encoded_key%>')">
         </TD>
     </TR>
 

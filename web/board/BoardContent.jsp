@@ -81,7 +81,7 @@
     <jsp:param name="column" value="<%=column%>"/>
     <jsp:param name="key" value="<%=key%>"/>
 </jsp:include>
-<%
+    <%
    } else {
 %>
 <jsp:include page="../member/LoginState.jsp"/>
